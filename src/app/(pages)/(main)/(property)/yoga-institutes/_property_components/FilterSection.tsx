@@ -4,16 +4,16 @@ import React from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 const FilterSection = ({ title, isExpanded, onToggle, children }) => (
-  <div className="border-b border-gray-200 pb-4 mb-4">
+  <div className="border-b border-[var(--primary-border)] pb-2 mb-2">
     <button
       onClick={onToggle}
-      className="flex items-center justify-between w-full text-left font-medium text-gray-800 hover:text-purple-600 transition-colors"
+      className="flex items-center justify-between cursor-pointer w-full text-left font-medium hover:text-[var(--text-hover-color)] transition-colors sub-heading"
       aria-expanded={isExpanded}
       aria-controls={`filter-section-${title.replace(/\s+/g, "-")}`}
     >
       <span>{title}</span>
       <FaChevronDown
-        className={`w-4 h-4 transition-transform duration-200 ${
+        className={`w-3 h-3 transition-transform duration-200 ${
           isExpanded ? "rotate-180" : ""
         }`}
       />

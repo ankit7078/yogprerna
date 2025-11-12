@@ -25,12 +25,12 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const visiblePages = getVisiblePageNumbers();
 
   return (
-    <div className="flex justify-center items-center space-x-1 mt-auto pt-4  flex-shrink-0 flex-wrap gap-2">
+    <div className="flex rounded-b-lg bg-[var(--primary-bg)] justify-center items-center space-x-1 mt-auto py-3 flex-shrink-0 flex-wrap gap-2">
 
       <button
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg bg-purple-50 text-purple-700 hover:bg-purple-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="p-2 rounded-lg bg-[var(--secondary-bg)] text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)] cursor-pointer shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         aria-label="Go to previous page"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
@@ -40,15 +40,15 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
       {visiblePages.map((page, index) =>
         page === "ellipsis" ? (
-          <span key={`ellipsis-${index}`} className="px-3 py-2 text-gray-500">...</span>
+          <span key={`ellipsis-${index}`} className="px-3 py-2">...</span>
         ) : (
           <button
             key={page}
             onClick={() => onPageChange(page)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors min-w-[40px] ${
               currentPage === page
-                ? "bg-purple-600 text-white shadow-md transform scale-105"
-                : "bg-gray-100 text-gray-700 hover:bg-purple-100 hover:scale-105"
+                ? "bg-[var(--text-hover-color)] text-[var(--text-color-primary)] shadow-md transform scale-105"
+                : "bg-[var(--secondary-bg)] text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)] hover:scale-105"
             }`}
           >
             {page}
@@ -59,7 +59,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg bg-purple-50 text-purple-700 hover:bg-purple-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="p-2 rounded-lg bg-[var(--secondary-bg)] text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         aria-label="Go to next page"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">

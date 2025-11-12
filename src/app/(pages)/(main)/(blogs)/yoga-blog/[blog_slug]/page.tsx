@@ -10,6 +10,7 @@ import { mockBlogs, mockCategories, mockTags, mockUsers } from "../../../../../d
 import { generateSlug } from "../../../../../../contexts/Callbacks";
 import Sidebar from "./_blog_detail_components/sidebar";
 import BlogEnquiryForm from "./_blog_detail_components/BlogEnquiryForm";
+import { BackLink } from "@/common/BackButton";
 
 const BlogDetailLoader = () => (
   <div className="flex justify-center items-center h-screen bg-gray-50">
@@ -77,18 +78,15 @@ const BlogDetailPage: React.FC = () => {
   const authorProfileUrl = blog.author_profile?.[0] || "/img/blog-img/blog-1.png";
 
   return (
-    <div className="bg-[var(--text-primary)] py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <Link href="/yoga-blog" className="inline-flex items-center space-x-2 text-[var(--text-hover-color)] transition-colors group">
-            <LuArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform duration-200" />
-            <span>Back to All Posts</span>
-          </Link>
+    <div className="bg-[var(--secondary-bg)] py-6">
+      <div className="max-w-7xl mx-auto px-2 sm:px-8">
+        <div className="mb-4">
+          <BackLink href="/yoga-blog" label="Back to Blog" />
         </div>
- 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
-            <article className="bg-[var(--primary-color)] text-[var(--subprimary-color)] rounded-2xl shadow-sm overflow-hidden">
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 space-y-6">
+            <article className="bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom shadow-custom overflow-hidden">
               <div className="relative w-full aspect-video">
                 <Image
                   src={featuredImageUrl}
@@ -99,40 +97,39 @@ const BlogDetailPage: React.FC = () => {
                 />
               </div>
 
-              <div className="p-6 md:p-8">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
+              <div className="p-5">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
                   {(blog.category as string[]).map((category) => (
-                    <span key={category} className="bg-[var(--secondary-color)] text-[var(--text-color-primary)] px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                    <span key={category} className="bg-[var(--text-hover-color)] text-[var(--text-color-primary)] px-3 py-1 rounded-custom paragraph font-semibold tracking-wide">
                       {category}
                     </span>
                   ))}
-                  <div className="flex items-center space-x-2 ml-auto">
-                    <LuCalendar className="h-4 w-4" />
-                    <span className="text-sm">{new Date(blog.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+                  <div className="flex items-center space-x-1 ml-auto">
+                    <LuCalendar className="h-4 w-4 text-[var(--text-hover-color)]" />
+                    <p className="text-sm">{new Date(blog.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <LuClock className="h-4 w-4" />
-                    <span className="text-sm">{formatDistanceToNow(new Date(blog.createdAt), { addSuffix: true })}</span>
+                  <div className="flex items-center space-x-1">
+                    <LuClock className="h-4 w-4 text-[var(--text-hover-color)]" />
+                    <p>{formatDistanceToNow(new Date(blog.createdAt), { addSuffix: true })}</p>
                   </div>
                 </div>
 
-                <h1 className="text-3xl lg:text-3xl text-[var(--text-color)] font-extrabold mb-6 leading-tight">
+                <h1 className="heading-lg text-[var(--text-color)] font-extrabold leading-tight mb-3">
                   {blog.title}
                 </h1>
-
-                <div
-                  className="prose prose-lg max-w-none prose-p:text-gray-700 prose-headings:font-bold prose-headings:text-gray-800"
+                <p
+                  className="prose prose-lg max-w-none prose-p:text-[var(--text-primary)] prose-headings:font-bold prose-headings:text-[var(--text-primary)]"
                   dangerouslySetInnerHTML={{ __html: blog.blog }}
                 />
 
-                <div className="mt-8 pt-6 border-t border-[var(--text-color)]">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <LuTag className="h-5 w-5 text-[var(--text-hover-color)]" />
-                    <h3 className="font-semibold">Tags</h3>
+                <div className="mt-5 pt-5 border-t border-[var(--primary-border)]">
+                  <div className="flex items-center space-x-1 mb-3">
+                    <LuTag className="h-4 w-4 text-[var(--text-hover-color)]" />
+                    <h3 className="font-semibold sub-heading">Tags</h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">  
+                  <div className="flex flex-wrap gap-3">
                     {(blog.tags as string[]).map((tag) => (
-                      <span key={tag} className="bg-[var(--secondary-color)] text-[var(--text-color-primary)] px-3 py-1 rounded-full text-sm font-medium">
+                      <span key={tag} className="bg-[var(--text-hover-color)] text-[var(--text-color-primary)] px-3 py-1 rounded-custom paragraph font-medium">
                         {tag}
                       </span>
                     ))}
@@ -141,7 +138,7 @@ const BlogDetailPage: React.FC = () => {
               </div>
             </article>
 
-            <div className="bg-[var(--primary-color)] text-[var(--subprimary-color)] rounded-2xl p-6 gap-5 md:p-8 md:flex items-center space-x-6 mt-8 shadow-sm">
+            <div className="bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom p-5 gap-5 md:flex items-center shadow-custom">
               <div className="relative w-20 h-20 rounded-full overflow-hidden mx-auto md:mx-0 flex-shrink-0">
                 <Image
                   src={authorProfileUrl}
@@ -150,10 +147,12 @@ const BlogDetailPage: React.FC = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="mt-4 md:mt-0 text-center md:text-left flex-1">
-                <p className="text-sm font-bold uppercase tracking-wider">Written By</p>
-                <p className="font-bold text-xl">{blog.author_name}</p>
-                <p className="text-sm">Yoga & Wellness Expert</p>
+              <div className="mt-4 md:mt-0 flex-1 space-y-1 ">
+                <div className="flex items-center">
+                  <h3 className="sub-heading font-bold ">Written By :</h3>
+                  <h4 className="heading-sm font-bold ps-2">{blog.author_name}</h4>
+                </div>
+                <p>Yoga & Wellness Expert</p>
               </div>
             </div>
 

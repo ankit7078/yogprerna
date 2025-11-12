@@ -1,5 +1,5 @@
-// app/institutes/[detail]/_detail_property_component/tabs/Gallery.tsx
 'use client';
+
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
@@ -59,10 +59,10 @@ export default function GalleryTab() {
   };
 
   return (
-    <div className="space-y-10 p-6">
+    <div className="space-y-10 p-4 text-[var(--primary-text)]">
       {galleries.map((gallery, gIdx) => (
         <div key={gIdx}>
-          <h2 className="text-xl font-bold text-gray-600 mb-4">
+          <h2 className="heading font-bold mb-4">
             {gallery.title}
           </h2>
 
@@ -70,7 +70,7 @@ export default function GalleryTab() {
             {gallery.images.slice(0, 8).map((img, i) => (
               <div
                 key={i}
-                className="aspect-square overflow-hidden shadow rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                className="aspect-square overflow-hidden rounded-custom cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => handleOpen(gallery.images, i)}
               >
                 <img

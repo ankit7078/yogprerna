@@ -1,6 +1,8 @@
-// app/institutes/[detail]/_detail_property_component/tabs/Amenities.tsx
 'use client';
+
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import clsx from "clsx";
 import {
   CheckCircle2,
   Layers,
@@ -15,14 +17,14 @@ import {
 } from "lucide-react";
 
 const amenitiesData: Record<string, string[]> = {
-  Mandatory: ["Laundry", "Newspaper", "Air Conditioning"],
-  "Basic Facilities": ["Free Wifi", "Power Backup", "Wheelchair Accessible"],
-  "General Services": ["Room Service", "Security", "Reception"],
-  "Yoga Facilities": ["Meditation Hall", "Indoor Yoga Studio"],
-  "Common Area": ["Lounge", "Terrace", "Garden"],
-  "Outdoor & Recreational": ["Nearby Nature", "Sports"],
-  "Food & Drink": ["Restaurant", "Cafe"],
-  Transportation: ["Indoor Parking", "Pickup & Drop Service"],
+  Mandatory: ["Laundry Service", "Newspaper", "Air Conditioning", "Daily Housekeeping"],
+  "Basic Facilities": ["Free Wifi", "Power Backup", "Elevator / Lift", "Wheelchair Accessible"],
+  "General Services": ["Room Service", "24/7 Security", "Front Desk", "Concierge"],
+  "Yoga Facilities": ["Meditation Hall", "Indoor Yoga Studio", "Outdoor Yoga Deck", "Yoga Props"],
+  "Common Area": ["Lounge", "Terrace", "Garden", "Library"],
+  "Outdoor & Recreational": ["Nearby Nature Trails", "Cycling", "Bonfire Area"],
+  "Food & Drink": ["On-site Restaurant", "Cafeteria", "Room Service Dining"],
+  Transportation: ["Indoor Parking", "Airport Pickup & Drop", "Car Rental Service"],
 };
 
 const categoryIcons: Record<string, React.ElementType> = {
@@ -40,65 +42,88 @@ export default function AmenitiesPage() {
   const categories = Object.keys(amenitiesData);
   const [activeTab, setActiveTab] = useState(categories[0]);
 
+  const renderCategoryList = (isMobile: boolean = false) => (
+    <>
+      {categories.map((category) => {
+
+        const isActive = activeTab === category;
+        const baseClasses = "flex items-center gap-3 transition-all duration-300 cursor-pointer";
+        const mobileClasses = `text-sm font-medium px-4 py-2 rounded-custom whitespace-nowrap ${isActive ? "bg-[var(--text-hover-color)] text-[var(--text-color-primary)] shadow" : "bg-[var(--primary-icon-l)] text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)]"
+          }`;
+
+        const desktopClasses = `w-full text-left px-6 py-4 paragraph font-semibold border-l-4 ${isActive
+          ? "bg-[var(--secondary-icon-l)] text-[var(--text-hover-color)] border-[var(--text-hover-color)]"
+          : "border-transparent hover:bg-[var(--secondary-icon-l)] hover:text-[var(--text-hover-color)]"
+          }`;
+
+        return (
+          <button
+            key={category}
+            onClick={() => setActiveTab(category)}
+            className={clsx(baseClasses, isMobile ? mobileClasses : desktopClasses)}
+          >
+            {categoryIcons[category] && React.createElement(categoryIcons[category], { className: "text-[var(--text-hover-color)] w-5 h-5 shrink-0" })}
+            <span className="flex-grow">{category}</span>
+            {!isMobile && (
+              <span className={clsx(
+                " px-2 py-0.5 rounded-custom paragraph font-bold",
+                isActive ? "bg-[var(--text-hover-color)] hover:bg-[var(--text-color-primary)] text-[var(--text-color-primary)]" : "bg-[var(--secondary-icon-l)]"
+              )}>
+                {amenitiesData[category].length}
+              </span>
+            )}
+          </button>
+        );
+      })}
+    </>
+  );
+
   return (
-    <div className="">
-      <div className="max-w-7xl mx-auto overflow-hidden">
+    <div className="bg-[var(--primary-bg)] text-[var(--primary-text)]">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[300px_1fr]">
-          <div className="bg-gray-50/80 backdrop-blur-sm">
-         
-            {categories.map((category) => {
-              const Icon = categoryIcons[category] || Layers;
-              return (
-                <button
-                  key={category}
-                  onClick={() => setActiveTab(category)}
-                  className={`w-full text-left px-6 py-4 flex justify-between items-center font-medium text-sm md:text-base transition-all duration-300 ${
-                    activeTab === category
-                      ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-md rounded-r-full"
-                      : "hover:bg-gray-100 text-gray-700"
-                  }`}
-                >
-                  <span className="flex items-center gap-2">
-                    <Icon className="w-4 h-4" />
-                    {category}
-                  </span>
-                  <span
-                    className={`text-xs px-2 py-1 rounded-full ${
-                      activeTab === category
-                        ? "bg-white text-purple-600"
-                        : "bg-gray-200 text-gray-600"
-                    }`}
-                  >
-                    {amenitiesData[category].length}
-                  </span>
-                </button>
-              );
-            })}
+          <div className="md:hidden border-b border-[var(--primary-border)] p-4">
+            <div className="flex items-center gap-3 overflow-x-auto pb-2 -mb-2">
+              {renderCategoryList(true)}
+            </div>
           </div>
 
+          <div className="hidden md:block border-r border-[var(--primary-border)] py-4">
+            {renderCategoryList(false)}
+          </div>
           <div className="p-4">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-sm font-bold text-gray-600 tracking-wide">
-                {activeTab}
-              </h2>
-              <span className="text-sm text-gray-500">
-                {amenitiesData[activeTab].length} items
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              {(amenitiesData[activeTab as keyof typeof amenitiesData] || []).map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 bg-white shadow-xs hover:shadow-sm p-3 rounded-2xl transition transform hover:-translate-y-1"
-                >
-                  <CheckCircle2 className="text-purple-600 w-6 h-6" />
-                  <span className="text-gray-800 font-medium text-lg">
-                    {item}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <div className="flex items-baseline justify-between mb-3">
+                  <h2 className="sub-heading  font-bold">
+                    {activeTab}
+                  </h2>
+                  <span className="paragraph font-medium">
+                    {amenitiesData[activeTab].length} facilities
                   </span>
                 </div>
-              ))}
-            </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-1 gap-4">
+                  {(amenitiesData[activeTab] || []).map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-4 bg-[var(--secondary-bg)] p-3 rounded-custom shadow-custom transition-all duration-300"
+                    >
+                      <CheckCircle2 className="text-[var(--text-hover-color)] w-5 h-5 shrink-0" />
+                      <span className="paragraph" >
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>

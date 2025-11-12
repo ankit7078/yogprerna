@@ -59,61 +59,55 @@ export default function CourseTable({
   ];
 
   return (
-    <div className="bg-white shadow-sm border-x border-purple-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+    <div className="bg-[var(--secondary-bg)] shadow-custom border-x border-[var(--primary-border)] overflow-hidden transition-all duration-300">
       <div
-        className="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 cursor-pointer px-6 py-3 transition-all duration-200 hover:from-purple-600 hover:via-purple-700 hover:to-purple-800 relative overflow-hidden"
+        className="text-[var(--primary-text)] bg-[var(--blue-bg)] cursor-pointer sm:px-6 px-2 py-3 transition-all duration-200 relative overflow-hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-2 right-10 w-8 h-8 bg-white rounded-full blur-lg"></div>
-          <div className="absolute bottom-2 left-10 w-6 h-6 bg-white rounded-full blur-md"></div>
-        </div>
 
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-sm">
-              <LuBookOpen size={16} className="text-white" />
+            <div className="w-8 h-8 rounded-full bg-[var(--secondary-bg)] text-[var(--text-hover-color)] backdrop-blur-sm flex items-center justify-center">
+              <LuBookOpen size={16} />
             </div>
-            <div>
-              <h2 className="text-lg font-bold text-white mb-0.5">
+            <div className="text-[var(--text-color-primary)]">
+              <h2 className="sm:text-lg heading font-bold">
                 Course Comparison
               </h2>
-              <p className="text-purple-100 text-xs">
+              <p>
                 Compare courses across {selectedProperties.length} colleges
               </p>
             </div>
           </div>
           <div
-            className={`p-2 rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/30 hover:scale-110 ${
-              isOpen ? "rotate-180" : ""
-            }`}
+            className={`p-2 rounded-full bg-[var(--secondary-bg)] backdrop-blur-sm transition-all duration-300 hover:scale-110 ${isOpen ? "rotate-180" : ""
+              }`}
           >
-            <LuChevronDown size={16} className="text-white" />
+            <LuChevronDown size={16} />
           </div>
         </div>
       </div>
 
       <div
-        className={`transition-all duration-500 ease-in-out ${
-          isOpen
-            ? "max-h-none opacity-100"
-            : "max-h-0 opacity-0 overflow-hidden"
-        }`}
+        className={`transition-all duration-500 ease-in-out ${isOpen
+          ? "max-h-none opacity-100"
+          : "max-h-0 opacity-0 overflow-hidden"
+          }`}
       >
         <div className="p-0">
           {allCourses.length > 0 ? (
             <>
-              {/* Course Selector */}
-              <div className="px-6 py-4 bg-purple-50 border-b border-purple-100">
-                <label className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                  <LuGraduationCap size={16} className="text-purple-600" />
+              <div className="px-6 py-4 bg-[var(--primary-bg)] text-[var(--secondary-text)] border-b border-[var(--primary-border)]">
+                <label className="sub-heading font-semibold mb-1 flex items-center gap-2">
+                  <LuGraduationCap size={16} className="text-[var(--text-hover-color)]" />
                   Select Course to Compare:
                 </label>
-                <div className="relative">
+
+                <div className="relative w-full max-w-md">
                   <select
                     value={selectedCourseId}
                     onChange={(e) => setSelectedCourseId(e.target.value)}
-                    className="w-full max-w-md px-4 py-2.5 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 bg-white shadow-sm transition-all duration-200 text-sm font-medium appearance-none cursor-pointer"
+                    className="w-full appearance-none px-4 py-2 text-[var(--primary-text)] border border-[var(--primary-border)] rounded-custom bg-[var(--secondary-bg)] shadow-custom paragraph font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--primary-border)] focus:border-[var(--primary-border)] pr-10"
                   >
                     {allCourses.map((course) => (
                       <option key={course.id} value={course.id}>
@@ -122,43 +116,42 @@ export default function CourseTable({
                     ))}
                   </select>
                   <LuChevronDown
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-500 pointer-events-none"
-                    size={16}
+                    size={18}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-hover-color)] pointer-events-none"
                   />
                 </div>
               </div>
 
-              {/* Tabular Comparison */}
               <div className="w-full overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
-                    <tr className="bg-gradient-to-r from-purple-50 to-purple-100 border-b border-purple-200">
-                      <th className="text-left p-4 font-semibold text-gray-800 border-r border-purple-200 min-w-[160px] text-sm">
+                    <tr className="bg-[var(--primary-bg)] text-[var(--primary-text)] border-b border-[var(--primary-border)]">
+                      <th className="p-4 font-semibold border-r border-[var(--primary-border)] min-w-[160px] sub-heading">
                         Course Details
                       </th>
                       {selectedProperties.map((prop, idx) => (
                         <th
                           key={idx}
-                          className="text-center p-4 font-semibold text-gray-800 border-r border-purple-200 last:border-r-0 min-w-[200px]"
+                          className="text-center p-4 font-semibold border-r border-[var(--primary-border)] last:border-r-0 min-w-[200px]"
                         >
                           <div className="flex flex-col items-center">
                             {!prop?.property_logo?.[0] ? (
-                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center mb-2 shadow-sm">
-                                <span className="text-purple-600 font-bold text-sm">
+                              <div className="w-10 h-10 rounded-custom flex items-center justify-center mb-2 shadow-custom">
+                                <span className="font-bold paragraph">
                                   {prop.property_name.charAt(0)}
                                 </span>
                               </div>
                             ) : (
-                              <div className="relative w-14 h-14 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 group-hover:scale-105 mb-3 overflow-hidden">
+                              <div className="relative w-14 h-14 rounded-custom shadow-custom transition-all duration-300 group-hover:scale-105 mb-3 overflow-hidden">
                                 <Image
                                   src={`${prop.property_logo?.[0]}`}
                                   alt={prop.property_name}
                                   fill
-                                  className="object-contain"
+                                  className="object-cover"
                                 />
                               </div>
                             )}
-                            <span className="text-sm font-medium break-words text-center leading-tight">
+                            <span className="paragraph font-medium break-words text-center leading-tight">
                               {prop.property_name}
                             </span>
                           </div>
@@ -166,20 +159,20 @@ export default function CourseTable({
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-100">
+                  <tbody className="divide-y divide-[var(--primary-border)]">
                     {courseFields.map((field, idx) => (
                       <tr
                         key={idx}
-                        className="hover:bg-purple-25 transition-colors duration-200"
+                        className="transition-colors duration-200"
                       >
-                        <td className="font-semibold p-4 text-gray-700 bg-gradient-to-r from-gray-50 to-purple-25 border-r border-purple-200">
+                        <td className="font-semibold p-4 text-[var(--primary-text)] border-r border-[var(--primary-border)]">
                           <div className="flex items-center gap-3">
-                            <div className="w-7 h-7 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center shadow-sm flex-shrink-0">
-                              <span className="text-sm">
-                                {<field.icon className="text-purple-600" />}
+                            <div className="w-7 h-7 bg-[var(--primary-icon-l)] text-[var(--text-hover-color)] rounded-custom flex items-center justify-center shadow-custom flex-shrink-0">
+                              <span className="paragraph">
+                                {<field.icon />}
                               </span>
                             </div>
-                            <span className="text-sm break-words">
+                            <span className="heading-sm break-words">
                               {field.label}
                             </span>
                           </div>
@@ -219,15 +212,14 @@ export default function CourseTable({
                           return (
                             <td
                               key={pIdx}
-                              className="p-4 text-center border-r border-gray-100 last:border-r-0"
+                              className="p-4 text-center border-r border-[var(--primary-border)] last:border-r-0"
                             >
                               <span
-                                className={`inline-block px-3 py-1.5 rounded-lg text-sm font-medium shadow-sm break-words ${
-                                  displayValue === "Not Available" ||
+                                className={`inline-block px-3 py-1 rounded-custom paragraph font-medium shadow-custom break-words ${displayValue === "Not Available" ||
                                   displayValue === "N/A"
-                                    ? "bg-gradient-to-r from-gray-100 to-gray-200 text-gray-600"
-                                    : "bg-gradient-to-r from-purple-100 to-purple-200 text-purple-800"
-                                }`}
+                                  ? "bg-[var(--primary-icon-l)] text-[var(--text-hover-color)]"
+                                  : "bg-[var(--primary-icon-l)] text-[var(--text-hover-color)]"
+                                  }`}
                               >
                                 {displayValue}
                               </span>
@@ -241,14 +233,14 @@ export default function CourseTable({
               </div>
             </>
           ) : (
-            <div className="text-center py-12">
-              <div className="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
-                <LuBookOpen size={24} className="text-gray-400" />
+            <div className="text-center py-12 bg-[var(--primary-bg)] text-[var(--primary-text)]">
+              <div className="w-16 h-16  rounded-full flex items-center justify-center mx-auto mb-4 shadow-custom">
+                <LuBookOpen size={24} />
               </div>
-              <h3 className="text-lg font-semibold text-gray-700 mb-2">
+              <h3 className="sub-heading font-semibold mb-2">
                 No Courses Available
               </h3>
-              <p className="text-gray-500 text-sm">
+              <p>
                 No courses available for comparison
               </p>
             </div>

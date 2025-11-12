@@ -1,5 +1,6 @@
-// app/institutes/[detail]/_detail_property_component/Enquiry.tsx
 'use client';
+
+import { ButtonGroup } from "@/common/ButtonGroup";
 import React, { useState } from "react";
 import {
   FaUser,
@@ -10,6 +11,7 @@ import {
   FaCalendarAlt,
   FaPaperPlane,
 } from "react-icons/fa";
+import { InputGroup } from "../../../../../../common/FormComponents";
 
 const EnquiryForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -33,44 +35,42 @@ const EnquiryForm: React.FC = () => {
 
   return (
     <div
-      className="my-4 bg-[var(--primary-color)] text-[var(--primary-color-2)] border border-[var(--link-color)] sm:rounded-2xl sm:shadow-sm p-6 max-w-4xl mx-auto"
+      className="m-2 sm:m-0 bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom shadow-custom p-6 "
       id="enquiry"
     >
-      <h2 className="text-xl font-semibold mb-4 border-b border-[var(--subprimary-color)] pb-2">
+      <h2 className="heading font-semibold mb-4 border-b border-[var(--primary-border)] pb-2">
         Enquiry Form
       </h2>
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-3"
       >
         <div className="relative">
-          <FaUser className="absolute left-3 top-4 " />
-          <input
+          <InputGroup
+            label="Enter Your Name"
             type="text"
             name="fullName"
             placeholder="Enter your full name"
             value={formData.fullName}
             onChange={handleChange}
             required
-            className="w-full pl-10 pr-4 py-3 shadow-sm rounded-xl"
           />
         </div>
 
         <div className="relative">
-          <FaEnvelope className="absolute left-3 top-4 text-gray-400" />
-          <input
+          <InputGroup
+            label="Email"
             type="email"
             name="email"
             placeholder="you@example.com"
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full pl-10 pr-4 py-3 shadow-sm rounded-xl "
           />
         </div>
 
         <div className="relative">
-          <FaPhone className="absolute left-3 top-4 text-gray-400" />
+          <label className="text-xs">Phone</label>
           <input
             type="tel"
             name="contact"
@@ -78,52 +78,49 @@ const EnquiryForm: React.FC = () => {
             value={formData.contact}
             onChange={handleChange}
             required
-            className="w-full pl-10 pr-4 py-3 shadow-sm  rounded-xl "
+            className="w-full px-4 text-xs py-2 border border-[var(--primary-border)] rounded-xl "
           />
         </div>
 
         <div className="relative">
-          <FaUsers className="absolute left-3 top-4 text-gray-400" />
-          <input
+          <InputGroup
+            label="People"
             type="number"
             name="people"
             placeholder="e.g., 2"
             value={formData.people}
             onChange={handleChange}
-            className="w-full pl-10 pr-4 py-3 shadow-sm  rounded-xl "
           />
         </div>
 
         <div className="relative">
-          <FaCalendarAlt className="absolute left-3 top-4 text-gray-400" />
-          <input
+          <InputGroup
+            id="date"
+            label="Date"
             type="date"
-            name="date"
             value={formData.date}
             onChange={handleChange}
-            className="w-full pl-10 pr-4 py-3 shadow-sm  rounded-xl "
           />
+
         </div>
 
         <div className="relative">
-          <FaCity className="absolute left-3 top-4 text-gray-400" />
-          <input
+          <InputGroup
+            label="City"
             type="text"
             name="city"
             placeholder="e.g., Delhi"
             value={formData.city}
             onChange={handleChange}
-            className="w-full pl-10 pr-4 py-3 shadow-sm  rounded-xl "
           />
-        </div>
 
+        </div>
         <div className="md:col-span-2">
-          <button
+          <ButtonGroup
+            label="Send Enquiry"
             type="submit"
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold hover:opacity-90 transition"
-          >
-            <FaPaperPlane /> Send Enquiry
-          </button>
+            className="w-full"
+          />
         </div>
       </form>
     </div>

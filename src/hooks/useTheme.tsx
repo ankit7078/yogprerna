@@ -1,26 +1,25 @@
 "use client";
 import { Theme, themes } from "@/common/Themes";
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 export function useTheme(defaultTheme: Theme = themes[0]) {
-    const [theme, setTheme] = useState<Theme>(defaultTheme);
+  const [theme, setTheme] = useState<Theme>(() => {
+    // ✅ Try to get the saved theme during initialization (before render)
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem("theme") as Theme | null;
+      if (storedTheme && themes.includes(storedTheme)) {
+        document.documentElement.setAttribute("data-theme", storedTheme);
+        return storedTheme;
+      }
+    }
+    document.documentElement.setAttribute("data-theme", defaultTheme);
+    return defaultTheme;
+  });
 
-    // Load stored theme on mount
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("theme") as Theme | null;
-        if (storedTheme && themes.includes(storedTheme)) {
-            setTheme(storedTheme);
-            document.documentElement.setAttribute("data-theme", storedTheme);
-        } else {
-            document.documentElement.setAttribute("data-theme", defaultTheme);
-        }
-    }, [defaultTheme]);
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
-    // Update localStorage + DOM whenever theme changes
-    useEffect(() => {
-        localStorage.setItem("theme", theme);
-        document.documentElement.setAttribute("data-theme", theme);
-    }, [theme]);
-
-    return { theme, setTheme, themes };
+  return { theme, setTheme, themes };
 }

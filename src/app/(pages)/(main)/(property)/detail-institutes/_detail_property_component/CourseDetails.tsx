@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight, FaBars, FaTimes } from "react-icons/fa";
-
 import Overview from "./tabs/Overview";
 import Gallery from "./tabs/Gallery";
 import Accomodation from "./tabs/Accomodation";
@@ -63,19 +62,17 @@ const CourseDetails: React.FC = () => {
   };
 
   return (
-    <div className="max-w-6xl  mx-auto">
-      {/* ✅ Sticky Tab Bar */}
-      <div className="sticky top-[60px] px-1 sm:rounded-t-2xl md:static z-40 bg-[var(--primary-color)]  border-b border-[var(--subprimary-color)] shadow-sm">
+    <div className="max-w-6xl mx-auto">
+
+      <div className="sticky top-[60px] px-1 sm:rounded-t-lg md:static z-40 bg-[var(--primary-bg)]  border-b border-[var(--primary-border)] shadow-custom">
         <div className="relative flex items-center">
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setSidebarOpen(true)}
-            className="absolute left-2 z-20 p-2 bg-gray-100  hover:bg-gray-200 transition md:hidden"
+            className="absolute left-0 z-20 bg-[var(--primary-bg)] ps-3 pe-2 transition md:hidden"
           >
-            <FaBars className="text-gray-700" />
+            <FaBars className="text-[var(--primary-text)] h-5 w-5" />
           </button>
 
-          {/* Scroll Left Button */}
           {canScrollLeft && (
             <button
               onClick={() => scroll("left")}
@@ -85,7 +82,6 @@ const CourseDetails: React.FC = () => {
             </button>
           )}
 
-          {/* Scrollable Tabs */}
           <div
             ref={scrollRef}
             className="flex space-x-6 overflow-x-auto hide-scrollbar px-14 md:px-16 "
@@ -93,21 +89,20 @@ const CourseDetails: React.FC = () => {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                className={`relative py-3 px-3 whitespace-nowrap cursor-pointer font-medium transition-colors duration-200 ${activeTab === tab.id
-                    ? "text-[var(--primary-color-2)]"
-                    : "text-[var(--subprimary-color)] hover:text-[var(--primary-color-2)]"
+                className={`relative py-3 px-3 whitespace-nowrap cursor-pointer font-medium sub-heading-1 transition-colors duration-200 ${activeTab === tab.id
+                  ? "text-[var(--text-hover-color)] bg-[var(--secondary-bg)] "
+                  : "text-[var(--primary-text)] hover:text-[var(--secondary-text)]"
                   }`}
                 onClick={() => setActiveTab(tab.id)}
               >
                 {tab.label}
                 {activeTab === tab.id && (
-                  <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[var(--subprimary-color)] rounded-full"></span>
+                  <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[var(--text-hover-color)] rounded-custom"></span>
                 )}
               </button>
             ))}
           </div>
 
-          {/* Scroll Right Button */}
           {canScrollRight && (
             <button
               onClick={() => scroll("right")}
@@ -119,8 +114,7 @@ const CourseDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Tab Content */}
-      <div className="bg-[var(--primary-color)] sm:rounded-b-2xl sm:shadow-sm overflow-hidden">
+      <div className="bg-[var(--primary-bg)] sm:rounded-b-lg sm:shadow-custom overflow-hidden">
         {activeTab === "overview1" && <Overview />}
         {activeTab === "gallery" && <Gallery />}
         {activeTab === "accomodation" && <Accomodation />}
@@ -131,29 +125,28 @@ const CourseDetails: React.FC = () => {
         {activeTab === "reviews" && <Reviews />}
       </div>
 
-      {/* ✅ Sidebar for Mobile */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-50 flex">
           <div
             className="fixed inset-0 bg-black bg-opacity-50"
             onClick={() => setSidebarOpen(false)}
           ></div>
-          <div className="relative bg-white w-64 p-6 overflow-y-auto">
+          <div className="relative bg-[var(--secondary-bg)] text-[var(--secondary-text)] w-full p-6 overflow-y-auto">
             <button
               onClick={() => setSidebarOpen(false)}
-              className="absolute top-3 right-3 p-2 rounded-md bg-gray-100"
+              className="absolute top-3 right-3 p-2 rounded-md text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)]"
             >
-              <FaTimes className="text-gray-700" />
+              <FaTimes />
             </button>
 
-            <h3 className="text-lg font-semibold mb-4">Menu</h3>
+            <h3 className="sub-heading font-semibold mb-4">Menu</h3>
             <nav className="space-y-3">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  className={`block w-full text-left py-2 px-3 rounded-md font-medium transition-colors ${activeTab === tab.id
-                      ? "bg-blue-50 text-blue-600"
-                      : "text-gray-700 hover:bg-gray-100"
+                  className={`block w-full text-left py-2 px-3 rounded-custom font-medium transition-colors ${activeTab === tab.id
+                    ? "bg-[var(--primary-icon-l)] text-[var(--text-hover-color)]"
+                    : "text-[var(--primary-text)] hover:bg-[var(--primary-icon-l)]"
                     }`}
                   onClick={() => {
                     setActiveTab(tab.id);
@@ -168,7 +161,6 @@ const CourseDetails: React.FC = () => {
         </div>
       )}
 
-      {/* ✅ Enquiry Form Section */}
       <div className="mt-6">
         <EnquiryForm />
       </div>

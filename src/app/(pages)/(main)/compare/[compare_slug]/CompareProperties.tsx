@@ -12,12 +12,12 @@ import BasicDetailTable from "../_components/BasicDetailTable";
 import MainGridCard from "../_components/MainGridCard";
 import { useRouter } from "next/navigation";
 import { getProfile } from "@/contexts/getAssets";
-import Breadcrumb from "../../../../../components/breadcrumbs/Breadcrumb";
+import Breadcrumb from "../../../../../components/breadcrumbs/breadcrumbs";
 import CompareLoader from "@/components/Loader/Compare/CompareLoader";
 import { LuLink } from "react-icons/lu";
 import Link from "next/link";
 import { generateSlug } from "@/contexts/Callbacks";
-import { mockProperties } from "./mock-data"; // <-- IMPORT MOCK DATA
+import { mockProperties } from "./mock-data";
 
 const CompareProperties = ({ slugs }: { slugs?: string[] }) => {
   const [selectedProperties, setSelectedProperties] = useState<PropertyProps[]>(
@@ -29,43 +29,29 @@ const CompareProperties = ({ slugs }: { slugs?: string[] }) => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const router = useRouter();
 
-  // MOCK DATA LOADING
   useEffect(() => {
     const loadMockData = () => {
-      // Simulate network delay
       setTimeout(() => {
         setAllProperties(mockProperties);
         setDataLoaded(true);
         setLoading(false);
-      }, 1000); // 1-second delay
+      }, 1000);
     };
 
     loadMockData();
   }, []);
 
-  // Initialize selected properties from URL slugs once data is loaded
   useEffect(() => {
     if (dataLoaded && allProperties.length > 0) {
       if (slugs && slugs.length > 0) {
         const matchedProperties = allProperties.filter((prop) =>
           slugs.includes(prop.property_slug)
         );
-
-        if (matchedProperties.length > 0) {
-          setSelectedProperties(matchedProperties);
-          if (matchedProperties.length < slugs.length) {
-            setModalOpen(true);
-          }
-        } else {
-          setModalOpen(true);
-        }
-      } else {
-        setModalOpen(true);
+        setSelectedProperties(matchedProperties);
       }
     }
   }, [dataLoaded, allProperties, slugs]);
 
-  // Event listeners for opening modal or deselecting all
   useEffect(() => {
     const handleOpenModal = () => setModalOpen(true);
     const handleDeselectAll = () => {
@@ -82,7 +68,6 @@ const CompareProperties = ({ slugs }: { slugs?: string[] }) => {
     };
   }, [router]);
 
-  // Update URL when properties change
   const navigateToCompare = useCallback(
     (properties: PropertyProps[]) => {
       if (properties.length === 0) {
@@ -121,7 +106,6 @@ const CompareProperties = ({ slugs }: { slugs?: string[] }) => {
     }
   }, [selectedProperties.length, router]);
 
-  // Mock "Save Compare" functionality
   const SaveCompare = useCallback(async () => {
     try {
       const user = await getProfile();
@@ -150,27 +134,24 @@ const CompareProperties = ({ slugs }: { slugs?: string[] }) => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="bg-[var(--secondary-bg)] text-[var(--primary-text)] max-w-7xl mx-auto px-2 sm:px-8 py-10 space-y-6">
+      <div className="">
         <div>
           <Breadcrumb items={[{ label: "Compare" }]} />
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 py-10">
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {selectedProperties.length === 0 &&
-              Array.from({ length: 3 }).map((_, index) => (
-                <MainGridCard
-                  key={`empty-${index}`}
-                  title="Add College"
-                  onClick={() => setModalOpen(true)}
-                  index={index}
-                />
-              ))}
-          </div>
+      <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {selectedProperties.length === 0 &&
+            Array.from({ length: 3 }).map((_, index) => (
+              <MainGridCard
+                key={`empty-${index}`}
+                title="Add College"
+                onClick={() => setModalOpen(true)}
+                index={index}
+              />
+            ))}
         </div>
-
         {modalOpen && (
           <CompareModal
             allProperties={allProperties}
@@ -193,24 +174,23 @@ const CompareProperties = ({ slugs }: { slugs?: string[] }) => {
           <div className="mb-20">
             <ComparisonTable selectedProperties={selectedProperties} />
 
-            <div className="bg-white rounded-b-2xl shadow-sm border-x border-b border-purple-100 overflow-hidden">
+            <div className="bg-[var(--secondary-bg)] text-[var(--secondary-text)] rounded-b-2xl shadow-custom border-x border-b border-[var(--primary-border)] overflow-hidden">
               <div className="w-full overflow-x-auto">
                 <table className="w-full border-collapse">
                   <tbody>
-                    <tr className="bg-gradient-to-r from-purple-50 to-purple-100">
-                      <td className="text-left p-4 font-semibold text-gray-800 border-r border-purple-200 min-w-[160px] text-sm">
+                    <tr>
+                      <td className="text-left p-4 font-semibold min-w-[160px] sub-heading">
                         Visit College
                       </td>
                       {selectedProperties.map((prop, idx) => (
                         <td
                           key={idx}
-                          className="text-center p-4 border-r border-purple-200 last:border-r-0 min-w-[200px]"
+                          className="text-center p-4 last:border-r-0 min-w-[200px]"
                         >
                           <Link
-                            href={`/${generateSlug(prop.category)}/${
-                              prop.property_slug
-                            }`}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-lg font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg text-sm"
+                            href={`/${generateSlug(prop.category)}/${prop.property_slug
+                              }`}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--text-hover-color)] text-[var(--text-color-primary)] rounded-custom font-medium transition-all duration-200 hover:scale-105 hover:shadow-custom paragraph"
                           >
                             Visit
                             <LuLink />

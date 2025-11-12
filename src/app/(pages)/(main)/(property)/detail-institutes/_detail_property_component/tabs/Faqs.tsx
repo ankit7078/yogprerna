@@ -1,5 +1,5 @@
-// app/institutes/[detail]/_detail_property_component/tabs/Faqs.tsx
 'use client';
+
 import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 
@@ -39,34 +39,33 @@ export default function FAQPage() {
   };
 
   return (
-    <div className=" ">
-      <div className=" w-full bg-white  rounded-2xl p-6">
-        <h2 className="text-xl font-bold text-left text-gray-800 mb-2">
+    <div>
+      <div className=" w-full p-5 bg-[var(--primary-bg)] text-[var(--primary-text)]">
+        <h2 className="heading font-bold">
           Frequently Asked Questions
         </h2>
-        <p className="text-left text-gray-500 mb-6">
+        <p className="mb-6">
           Find answers to common questions about our institute
         </p>
-
-        <div className="space-y-4">
+        <div className="space-y-2">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="rounded-xl shadow-xs"
+              className="rounded-custom"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="flex justify-between items-center w-full p-4 text-left font-medium text-gray-800 hover:bg-purple-50 rounded-xl"
+                className="flex justify-between items-center w-full p-3 font-medium hover:bg-[var(--secondary-bg)] bg-[var(--secondary-bg)] heading-sm shadow-custom cursor-pointer"
               >
                 {faq.question}
                 {openIndex === index ? (
-                  <Minus className="w-5 h-5 text-purple-600" />
+                  <Minus className="w-5 h-5 text-[var(--text-hover-color)]" />
                 ) : (
-                  <Plus className="w-5 h-5 text-purple-600" />
+                  <Plus className="w-5 h-5 text-[var(--text-hover-color)]" />
                 )}
               </button>
               {openIndex === index && (
-                <div className="px-4 pb-4 text-gray-600 animate-fadeIn">
+                <div className="px-4 pb-4 animate-fadeIn paragraph bg-[var(--secondary-bg)] shadow-custom">
                   {faq.answer}
                 </div>
               )}

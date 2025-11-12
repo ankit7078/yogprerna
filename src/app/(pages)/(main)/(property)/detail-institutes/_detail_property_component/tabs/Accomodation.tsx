@@ -41,29 +41,29 @@ export default function AccommodationPage() {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   return (
-    <div className="space-y-6 p-6">
-      <h2 className="text-xl font-bold text-gray-600 mb-3">
+    <div className="space-y-6 p-5 text-[var(--primary-text)]">
+      <h2 className="heading font-bold">
         Accommodation Options
       </h2>
-      <div className="space-y-8 max-w-5xl mx-auto">
+      <div className="space-y-6 max-w-6xl mx-auto">
         {accommodations.map((acc, accIndex) => (
           <div
             key={accIndex}
-            className="bg-white p-6 rounded-xl  shadow-xs hover:shadow-sm transition"
+            className="bg-[var(--secondary-bg)] p-5 rounded-custom shadow-custom transition"
           >
-            <h2 className="text-xl font-semibold text-purple-700">
+            <h3 className="sub-heading font-semibold text-[var(--text-hover-color)]">
               {acc.name}
-            </h2>
-            <p className="text-gray-600 mt-1 font-medium">{acc.price}</p>
-            <p className="text-gray-700 mt-2">{acc.description}</p>
+            </h3>
+            <p className="mt-2 font-medium">{acc.price}</p>
+            <p>{acc.description}</p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
               {acc.images.slice(0, 8).map((img, imgIndex) => (
                 <img
                   key={imgIndex}
                   src={img}
                   alt={`${acc.name} ${imgIndex + 1}`}
-                  className="w-full h-32 object-cover rounded-lg cursor-pointer hover:scale-105 transition"
+                  className="w-full h-32 object-cover rounded-custom cursor-pointer hover:scale-105 transition"
                   onClick={() => {
                     setCurrentAccIndex(accIndex);
                     setCurrentImgIndex(imgIndex);

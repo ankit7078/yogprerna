@@ -1,35 +1,77 @@
 @import "tailwindcss";
 
-* {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-montserrat), sans-serif;
 }
-p {
+* {
   font-family: var(--font-poppins), sans-serif;
 }
+
 :root {
-  --primary-color: #fbfbfb;
-  --text-primary: #ffffff;
-  --subprimary-color: #454545;
-  --primary-color-2: #000000;
-  --link-color: #ffffff;
-  --secondary-color: #31307b;
-  --text-hover-color: #3253f5;
+  --primary-bg: #fff;
+  --secondary-bg: #f9fafb;
+  --blue-bg: #31307b;
+  
+  --primary-text: #454545;
+  --secondary-text: #000000;
+  --found-text: #a4a4a4;
+  --muted-text: #ffffff;
   --text-color: #454545;
-  --text-color-h: #000000;
-  --text-success-color: #22c55e;
+  --primary-page-h: #000000;
   --text-color-primary: #ffffff;
+
+  --primary-heading-bg: #f1f3ff;
+
+  --primary-border: #c7c7c7;
+
+  --text-hover-color: #3253f5;
+  --primary-text-h: #002aff;
+
+  --text-success-color: #22c55e;
+  --bg-success-l: #e6ffef;
+  --danger-button: #eb3535;
+  --danger-button-l: #fff1f1;
+  --warning-color: rgb(255, 184, 43);
+  --warning-color-l: #fbf4dd;
+
+  --text-muted: #222222bb;
+  --primary-icon-l: #ced5f8;
+  --secondary-icon-l: #f1f4ff;
+  --icon-not-found: #e4e4e4;
 }
 [data-theme="dark"] {
-  --primary-color: #1f2937;
-  --text-primary: #111827;
-  --subprimary-color: #bdbdbd;
-  --primary-color-2: #ffffff;
-  --link-color: #595959;
+  --primary-bg: #111827;
+  --secondary-bg: #1f2937;
+  --blue-bg: #31307b;
+
+  --primary-text: #bdbdbd;
+  --secondary-text: #ffff;
+  --found-text: #717171;
+  --muted-text: #595959;
   --text-color: #efefef;
-  --text-hover-color: #5370fd;
-  --secondary-color: #31307b;
-  --text-color-h: #ffffff;
+  --primary-page-h: #ffffff;
   --text-color-primary: #ffffff;
+
+  --primary-heading-bg: #31307b;
+
+  --primary-border: #374151;
+
+  --text-hover-color: #538cd3;
+  --primary-text-h: #2348ff;
+
+  --danger-button: #eb3535;
+  --danger-button-l: #fff1f1;
+  --warning-color: #ffb82b;
+  --warning-color-l: #fbf4dd;
+  --text-muted: #222222bb;
+  --primary-icon-l: #ced5f8;
+  --secondary-icon-l: #f1f4ff;
+  --icon-not-found: #4a5565;
 }
 
 .hide-scrollbar {
@@ -39,4 +81,62 @@ p {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.css-15lsz6c-indicatorContainer {
+  padding: 2px !important;
+}
+.css-1u9des2-indicatorSeparator {
+  margin: 0% !important;
+}
+
+/* Calendar icon styling */
+input[type="month"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(94%) saturate(749%)
+    hue-rotate(195deg) brightness(100%) contrast(97%);
+  cursor: pointer;
+}
+
+/* Optional: dark mode version */
+.dark input[type="month"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%) invert(65%) sepia(82%) saturate(640%)
+    hue-rotate(185deg) brightness(95%) contrast(92%);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(94%) saturate(749%)
+    hue-rotate(195deg) brightness(100%) contrast(97%);
+  cursor: pointer;
+}
+
+/* Optional: dark mode version */
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) saturate(100%) invert(65%) sepia(82%) saturate(640%)
+    hue-rotate(185deg) brightness(95%) contrast(92%);
+}
+
+.footer-list,
+li {
+  font-size: 13px;
+}
+.heading-lg {
+  font-size: 24px;
+}
+.heading {
+  font-size: 18px;
+}
+.sub-heading {
+  font-size: 16px;
+}
+.heading-sm {
+  font-size: 14px;
+}
+p,
+.paragraph {
+  font-size: 13px;
+}
+.shadow-custom {
+  box-shadow: 0 1px 3px rgba(255, 253, 253, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+.rounded-custom {
+  border-radius: 8px;
 }

@@ -12,6 +12,7 @@ import ResultsHeader from "./_property_components/ResultsHeader";
 
 const ITEMS_PER_PAGE = 6;
 
+
 export default function InstitutesPage() {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
 
@@ -63,7 +64,7 @@ export default function InstitutesPage() {
       <div className="flex-grow max-w-7xl w-full mx-auto  sm:px-6 lg:px-8 sm:py-8 overflow-hidden">
         <div className="flex lg:flex-row gap-6 sm:gap-8 h-full">
           {/* Left Column (Desktop Filters) */}
-          <div className="bg-white hidden lg:block rounded-2xl shadow-sm border border-purple-100 ">
+          <div className="bg-[var(--primary-bg)] hidden lg:block rounded-custom shadow-custom">
             <div className=" lg:w-80 flex-shrink-0 h-full overflow-y-auto hide-scrollbar pr-2">
               <div className="p-6">
                 <FiltersContent
@@ -77,17 +78,13 @@ export default function InstitutesPage() {
           </div>
           {/* Right Column */}
           <div className="flex-1 flex flex-col h-full overflow-y-auto hide-scrollbar">
-            {/* Results Header */}
             <ResultsHeader
-              // Old props
               count={filteredInstitutes.length}
               currentPage={currentPage}
               itemsPerPage={ITEMS_PER_PAGE}
               viewMode={viewMode}
               onViewModeChange={setViewMode}
               onShowMobileFilters={() => setShowMobileFilters(true)}
-
-              // New props that you must add
               activeFilters={activeFilters}
               clearFilters={clearFilters}
               removeFilterTag={removeFilterTag}
@@ -101,16 +98,16 @@ export default function InstitutesPage() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-16">
-                  <FaGraduationCap className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-gray-600 mb-2">No institutes found</h3>
-                  <p className="text-gray-500">Try adjusting your filters</p>
+                <div className="text-center py-16 bg-[var(--primary-bg)] shadow-custom rounded-2xl">
+                  <FaGraduationCap className="w-16 h-16 text-[var(--primary-text)] mx-auto mb-4" />
+                  <h3 className="heading font-bold mb-2">No institutes found</h3>
+                  <p>Try adjusting your filters</p>
                 </div>
               )}
             </div>
 
             {/* Pagination */}
-            <div className="sm:sticky bottom-0  pb-2 bg-gray-50 flex-shrink-0">
+            <div className="sm:sticky bottom-0 flex-shrink-0">
               {totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
               )}

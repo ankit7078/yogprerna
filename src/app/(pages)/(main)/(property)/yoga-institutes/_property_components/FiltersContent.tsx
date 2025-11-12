@@ -12,7 +12,6 @@ const FiltersContent = ({ filters, setFilters, yogaInstitutes, clearFilters }) =
     location: true,
   });
 
-  // This logic correctly calculates all available filter options from the main data
   const dynamicFilterOptions = useMemo(() => {
     if (!yogaInstitutes) return {};
     const academicTypes = [...new Set(yogaInstitutes.map((inst) => inst.academicType))];
@@ -38,7 +37,6 @@ const FiltersContent = ({ filters, setFilters, yogaInstitutes, clearFilters }) =
     setExpandedFilters((prev) => ({ ...prev, [filterType]: !prev[filterType] }));
   };
 
-  // This function is passed down to each checkbox filter
   const handleCheckboxFilter = (filterType, value) => {
     setFilters((prev) => {
       const currentValues = prev[filterType] || [];
@@ -51,15 +49,15 @@ const FiltersContent = ({ filters, setFilters, yogaInstitutes, clearFilters }) =
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between sticky sm:top-0 -top-6 bg-white z-20 p-4">
-        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-          <FaFilter className="w-5 h-5 mr-2 text-purple-600" /> Filters
-        </h3>
+      <div className="flex items-center justify-between bg-[var(--primary-bg)] z-20 ">
+        <span className="font-semibold flex items-center">
+          <FaFilter className="w-4 h-4 mr-2 text-[var(--text-hover-color)]" /> Filters
+        </span>
         <button
           onClick={clearFilters}
-          className="text-purple-600 hover:text-purple-700 text-sm font-medium flex items-center cursor-pointer"
+          className="text-[var(--text-hover-color)] font-medium flex items-center cursor-pointer"
         >
-          <FaTimes className="w-4 h-4 mr-1" /> Clear All
+          Clear All
         </button>
       </div>
 
@@ -102,7 +100,7 @@ const FiltersContent = ({ filters, setFilters, yogaInstitutes, clearFilters }) =
       <FilterSection title="Location" isExpanded={expandedFilters.location} onToggle={() => toggleFilter("location")}>
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+            <label className="block text-sm font-medium mb-2">Country</label>
             <CheckboxFilter
               items={dynamicFilterOptions.countries}
               filterType="country"
@@ -111,7 +109,7 @@ const FiltersContent = ({ filters, setFilters, yogaInstitutes, clearFilters }) =
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">State/Province</label>
+            <label className="block text-sm font-medium mb-2">State/Province</label>
             <CheckboxFilter
               items={dynamicFilterOptions.states}
               filterType="state"
@@ -120,7 +118,7 @@ const FiltersContent = ({ filters, setFilters, yogaInstitutes, clearFilters }) =
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">City</label>
+            <label className="block text-sm font-medium mb-2">City</label>
             <CheckboxFilter
               items={dynamicFilterOptions.cities}
               filterType="city"
