@@ -5,5 +5,5 @@ export default function DefaultSettingsPage({
 }: {
   searchParams: { tab?: string };
 }) {
-  return <SettingsPage tab={searchParams.tab} />;
+  return <SettingsPage tab={searchParams.tab}  />;
 }

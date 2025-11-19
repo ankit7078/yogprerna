@@ -30,8 +30,7 @@ const Sidebar = ({ blog }: { blog: BlogsProps | null }) => {
 
   const imageSrc =
     blog?.featured_image?.[0] || "/img/blog-img/blog-1.png";
-
-
+    
   return (
     <div className="space-y-4 sticky top-15">
       <div className="bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom shadow-custom p-5">

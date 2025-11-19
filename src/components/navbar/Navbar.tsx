@@ -213,13 +213,13 @@ export default function Navbar() {
                         <a href="/" className="flex-shrink-0">
                             {theme === "dark" ? (
                                 <img
-                                    src="img/logo/logo-white.png"
+                                    src="/img/logo/logo-white.png"
                                     alt="YogPrerna"
                                     className=" h-8 w-auto"
                                 />
                             ) : (
                                 <img
-                                    src="img/logo/logo-white.png"
+                                    src="/img/logo/logo-black.png"
                                     alt="YogPrerna"
                                     className=" h-8 w-auto"
                                 />

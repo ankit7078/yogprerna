@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 // Import new icons and use cleaner path aliases
 import { ActiveFilters, FilterGroupKey } from '../../../../../../types/types';
-import { X, ChevronLeft, ChevronRight } from './icons';
+
 import {
     experienceTypeFilters,
     locationTypeFilters,
@@ -12,6 +12,7 @@ import {
     courseTypeFilters,
     durationFilters,
 } from '../../../../../data/lib/coursesdata'; // Use cleaner path alias
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 type Props = {
     resultsCount: number;
@@ -89,7 +90,7 @@ export default function CourseListHeader({
                         className="flex-shrink-0 p-1 ms-2 rounded-full bg-[var(--primary-icon-l)] shadow-custom hover:bg-[var(--secondary-bg)] z-10 transition-colors cursor-pointer"
                         aria-label="Scroll filters left"
                     >
-                        <ChevronLeft size={20} className="text-[var(--primary-text)] hover:text-[var(--secondary-text)]"/>
+                        <ChevronLeft size={20} className="text-[var(--text-hover-color)] hover:text-[var(--secondary-text)] "/>
                     </button>
                 )}
                 <div
@@ -125,7 +126,7 @@ export default function CourseListHeader({
                         className="flex-shrink-0 p-1 me-2 cursor-pointer rounded-full bg-[var(--primary-icon-l)] shadow-custom hover:bg-[var(--secondary-bg)] z-10 transition-colors"
                         aria-label="Scroll filters right"
                     >
-                        <ChevronRight size={20} className="text-[var(--primary-text)] hover:text-[var(--secondary-text)]" />
+                        <ChevronRight size={20} className="text-[var(--text-hover-color)] hover:text-[var(--secondary-text)]" />
                     </button>
                 )}
             </div>

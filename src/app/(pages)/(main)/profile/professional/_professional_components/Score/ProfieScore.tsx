@@ -1,8 +1,10 @@
+'use client'
+
 import React, { useState } from "react";
-import { LuTarget } from "react-icons/lu";
 import { UserProps } from "@/types/types";
 import ProfileScoreModal from "./ProfileScoreModal";
 import ScoreProgress from "./ScoreProgress";
+import { Target } from "lucide-react";
 
 export default function ProfileScore({
   profile,
@@ -16,7 +18,7 @@ export default function ProfileScore({
     <div className="bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom shadow-custom overflow-hidden">
       <div className="bg-[var(--primary-heading-bg)] text-[var(--secondary-text)] px-6 py-4">
         <h3 className="heading font-bold flex items-center space-x-2">
-          <LuTarget className="h-4 w-4 text-[var(--text-hover-color)]" />
+          <Target className="h-4 w-4 text-[var(--text-hover-color)]" />
           <span>Profile Score</span>
         </h3>
       </div>

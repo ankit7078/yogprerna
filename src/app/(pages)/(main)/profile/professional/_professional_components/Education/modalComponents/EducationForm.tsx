@@ -1,3 +1,5 @@
+'use client'
+
 import API from "@/contexts/API";
 import { useFormik } from "formik";
 import React from "react";

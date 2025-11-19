@@ -1,6 +1,7 @@
+'use client'
+
 import { UserProps } from "@/types/types";
 import React from "react";
-import { LuX } from "react-icons/lu";
 import { useFormik } from "formik";
 import { AxiosError } from "axios";
 import toast from "react-hot-toast";
@@ -8,6 +9,7 @@ import API from "@/contexts/API";
 import { ProfileAboutValidation } from "@/contexts/ValidationSchema";
 import { InputGroup, TextareaGroup } from "@/common/FormComponents";
 import { ButtonGroup, ButtonGroupSecondary } from "@/common/ButtonGroup";
+import { X } from "lucide-react";
 
 interface EditAboutModalProps {
   profile: UserProps | null;
@@ -54,7 +56,7 @@ const EditAboutModal: React.FC<EditAboutModalProps> = ({
               onClick={onClose}
               className="hover:text-[var(--text-hover-color)] hover:bg-[var(--text-color-primary)] cursor-pointer p-1 rounded-custom transition-all"
             >
-              <LuX className="h-4 w-4" />
+              <X className="h-4 w-4" />
             </button>
           </div>
         </div>

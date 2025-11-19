@@ -1,8 +1,8 @@
 "use client";
+
 import React, { useCallback, useEffect, useState } from "react";
 import Banner from "./_professional_components/Banner";
 import { AllDegreeAndInstituteProps, UserProps } from "@/types/types";
-import { LuBadgeCheck, LuMail, LuPen, LuPhone } from "react-icons/lu";
 import Link from "next/link";
 import ProfileImage from "./_professional_components/ProfileImage";
 import AboutSection from "./_professional_components/About/AboutSection";
@@ -19,6 +19,7 @@ import EducationSection from "./_professional_components/Education/Education";
 import ProfessionalLoader from "@/components/Loader/Professional/ProfessionalLoader";
 import Suggestions from "./_professional_components/Suggestions/Suggestions";
 import { useRouter } from "next/navigation";
+import { BadgeCheck, Mail, Pen, Phone } from "lucide-react";
 
 export default function Professional() {
   const router = useRouter();
@@ -157,7 +158,7 @@ export default function Professional() {
                       Ankit Verma
                     </span>
                     <span className="inline-flex items-center px-3 py-1  mt-2 rounded-full text-xs font-semibold bg-[var(--primary-icon-l)] text-[var(--text-hover-color)] ring-1 ring-[var(--text-hover-color)] shadow-custom">
-                      <LuBadgeCheck className="me-1" />
+                      <BadgeCheck className="me-1" />
                       Professional
                     </span>
                   </h1>
@@ -172,14 +173,14 @@ export default function Professional() {
                   )}
 
                   <div className="flex items-center space-x-1 mb-3 heading-sm">
-                    <LuMail className="h-4 w-4 text-[var(--text-hover-color)]" />
+                    <Mail className="h-4 w-4 text-[var(--text-hover-color)]" />
                     <span>
                       {/* {profileData?.email} */}
                       @av8537742@gmail.com
                     </span>
                   </div>
                   <div className="flex items-center space-x-1 heading-sm">
-                    <LuPhone className="h-4 w-4 text-[var(--text-hover-color)]" />
+                    <Phone className="h-4 w-4 text-[var(--text-hover-color)]" />
                     <span>
                       {/* {profileData?.mobile_no} */}
                       7078877740
@@ -196,7 +197,7 @@ export default function Professional() {
       transition-all duration-300 ease-in-out 
       animate-fadeIn flex space-x-2 items-center"
                   >
-                    <LuPen className="h-4 w-4" />
+                    <Pen className="h-4 w-4" />
                     <span className="font-medium paragraph">Edit Profile</span>
                   </Link>
                 </div>

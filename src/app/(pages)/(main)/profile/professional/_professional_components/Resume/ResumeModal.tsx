@@ -1,10 +1,12 @@
+'use client'
+
 import { ButtonGroup } from "@/common/ButtonGroup";
 import API from "@/contexts/API";
 import { UserProps } from "@/types/types";
 import { AxiosError } from "axios";
+import { FileText, X } from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { LuFileText, LuX } from "react-icons/lu";
 
 export function ResumeModal({
   profile,
@@ -68,7 +70,7 @@ export function ResumeModal({
       <div className="bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom max-w-xl w-full shadow-custom overflow-hidden">
         <div className="bg-[var(--text-hover-color)] text-[var(--text-color-primary)] px-6 py-4 flex items-center justify-between sticky top-0 z-10">
           <div className="flex items-center space-x-3">
-            <LuFileText className="h-4 w-4" />
+            <FileText className="h-4 w-4" />
             <h2 className="heading font-bold">
               Upload Your Resume
             </h2>
@@ -77,7 +79,7 @@ export function ResumeModal({
             onClick={closeModal}
             className="hover:text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)] cursor-pointer p-2 rounded-custom transition-all"
           >
-            <LuX className="h-4 w-4" />
+            <X className="h-4 w-4" />
           </button>
         </div>
 
@@ -86,7 +88,7 @@ export function ResumeModal({
             <>
               <div className="flex justify-center">
                 <div className="w-24 h-24 bg-[var(--primary-icon-l)] text-[var(--text-hover-color)] rounded-full flex items-center justify-center">
-                  <LuFileText className="h-12 w-12" />
+                  <FileText className="h-12 w-12" />
                 </div>
               </div>
               <h3 className="sub-heading font-bold text-[var(--secondary-text)]">
@@ -116,7 +118,7 @@ export function ResumeModal({
           ) : (
             <div className="space-y-3">
               <div className="w-24 h-24 bg-[var(--bg-success-l)] text-[var(--text-success-color)] rounded-full flex items-center justify-center mx-auto">
-                <LuFileText className="h-12 w-12" />
+                <FileText className="h-12 w-12" />
               </div>
               <div>
                 <p className="font-medium">

@@ -1,11 +1,13 @@
+'use client'
+
 import { ButtonGroup } from "@/common/ButtonGroup";
 import API from "@/contexts/API";
 import { getSkillNameById } from "@/contexts/Callbacks";
 import { AllSkillsProps, SelectOptionProps, UserProps } from "@/types/types";
 import { AxiosError } from "axios";
+import { Trash, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { LuTrash, LuX } from "react-icons/lu";
 import CreatableSelect from "react-select/creatable";
 
 const SkillsModal = ({
@@ -88,7 +90,7 @@ const SkillsModal = ({
               onClick={onClose}
               className="hover:text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)] cursor-pointer p-2 rounded-custom transition-all"
             >
-              <LuX className="h-4 w-4" />
+              <X className="h-4 w-4" />
             </button>
           </div>
         </div>
@@ -149,7 +151,7 @@ const SkillsModal = ({
                       onClick={() => handleRemoveSkill(skill)}
                       className="text-[var(--secondary-text)] bg-[var(--danger-button)] p-2 rounded-custom transition-all"
                     >
-                      <LuTrash className="h-4 w-4" />
+                      <Trash className="h-4 w-4" />
                     </button>
                   </div>
                 ))}

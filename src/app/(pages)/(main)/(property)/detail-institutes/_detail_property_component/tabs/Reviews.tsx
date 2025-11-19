@@ -69,7 +69,7 @@ export default function Reviews() {
 
       {showForm && (
         <form className="mt-8 space-y-4">
-          <h3 className="heading font-bold">
+          <h3 className="heading font-semibold">
             Share Your Experience
           </h3>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputGroup, SelectGroup } from '../../../../../../../common/FormComponents';
-import { FiCamera } from 'react-icons/fi';
+import { Camera } from 'lucide-react';
 
 const AccountSettings = () => {
     return (
@@ -28,7 +28,7 @@ const AccountSettings = () => {
                                 className="absolute bottom-0 right-0 bg-[var(--secondary-bg)] p-1.5 rounded-full shadow-md hover:bg-[var(--primary-bg)] transition"
                                 aria-label="Edit profile photo"
                             >
-                                <FiCamera size={14} className="text-[var(--secondary-text)]" />
+                                <Camera size={14} className="text-[var(--secondary-text)]" />
                             </button>
                         </div>
                         <div className='relative'>
@@ -84,7 +84,7 @@ const AccountSettings = () => {
                             className="absolute bottom-0 right-0 bg-[var(--secondary-bg)] p-1.5 rounded-full shadow-md hover:bg-[var(--primary-bg)] transition cursor-pointer"
                             aria-label="Edit profile photo"
                         >
-                            <FiCamera size={14} className="text-[var(--secondary-text)]" />
+                            <Camera size={14} className="text-[var(--secondary-text)]" />
                         </button>
                     </div>
 

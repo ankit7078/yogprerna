@@ -1,7 +1,9 @@
+'use client'
+
 import { getPropertyDetails } from "@/contexts/Callbacks";
 import { ExperienceProps, PropertyProps, UserProps } from "@/types/types";
+import { Pen } from "lucide-react";
 import React from "react";
-import { LuPen } from "react-icons/lu";
 
 export default function ExpereienceList({
   profile,
@@ -57,7 +59,7 @@ export default function ExpereienceList({
                   onClick={() => handleEdit(exp)}
                   className="p-2 rounded-custom transition-all"
                 >
-                  <LuPen className="h-4 w-4" />
+                  <Pen className="h-4 w-4" />
                 </button>
               </div>
             </div>

@@ -41,7 +41,7 @@ export default function FAQPage() {
   return (
     <div>
       <div className=" w-full p-5 bg-[var(--primary-bg)] text-[var(--primary-text)]">
-        <h2 className="heading font-bold">
+        <h2 className="heading font-semibold">
           Frequently Asked Questions
         </h2>
         <p className="mb-6">

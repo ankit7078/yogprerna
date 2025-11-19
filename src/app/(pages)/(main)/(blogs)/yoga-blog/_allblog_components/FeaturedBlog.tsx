@@ -3,9 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { LuCalendar, LuClock, LuArrowRight } from "react-icons/lu";
 import { stripHtmlAndLimit, generateSlug } from "@/contexts/Callbacks";
 import { BlogsProps } from "@/types/types";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 
 const FeaturedBlog = ({ blog }: { blog: BlogsProps }) => {
   const slug = generateSlug(blog.title);
@@ -22,7 +22,7 @@ const FeaturedBlog = ({ blog }: { blog: BlogsProps }) => {
       : "/img/blog-img/blog-1.png";
 
   return (
-    <section className="relative rounded-custom overflow-hidden shadow-custom mb-10 bg-black/90">
+    <section className="relative rounded-custom overflow-hidden shadow-custom bg-black/90">
       <div className="absolute inset-0">
         <Image
           src={imageSrc}
@@ -66,7 +66,7 @@ const FeaturedBlog = ({ blog }: { blog: BlogsProps }) => {
             </div>
 
             <div className="flex items-center space-x-2 ">
-              <LuCalendar className="h-4 w-4 text-[var(--text-hover-color)]" />
+              <Calendar className="h-4 w-4 text-[var(--text-hover-color)]" />
               <span>
                 {new Date(blog.createdAt).toLocaleDateString("en-US", {
                   year: "numeric",
@@ -77,7 +77,7 @@ const FeaturedBlog = ({ blog }: { blog: BlogsProps }) => {
             </div>
 
             <div className="flex items-center space-x-2">
-              <LuClock className="h-4 w-4 text-[var(--text-hover-color)]" />
+              <Clock className="h-4 w-4 text-[var(--text-hover-color)]" />
               <span>3 months ago</span>
             </div>
           </div>
@@ -87,7 +87,7 @@ const FeaturedBlog = ({ blog }: { blog: BlogsProps }) => {
             className="inline-flex items-center space-x-2 bg-[var(--text-color-primary)] text-[var(--primary-text-h)] px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300"
           >
             <span>Read Full Article</span>
-            <LuArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 

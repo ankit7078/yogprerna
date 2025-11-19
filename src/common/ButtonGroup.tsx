@@ -1,5 +1,6 @@
 import { LuSend } from "react-icons/lu";
 
+// button 1 
 export const ButtonGroup = ({
   label = "Save Changes",
   type = "button",
@@ -19,7 +20,7 @@ export const ButtonGroup = ({
   </button>
 );
 
-
+// button 2
 export const ButtonGroupSecondary = ({
   label = "Save Changes",
   type = "button",
@@ -39,6 +40,7 @@ export const ButtonGroupSecondary = ({
   </button>
 );
 
+// button 3
 export default function ButtonGroup2({ label, type = "button", disabled, isSubmitting, className = "" }) {
   return (
     <button

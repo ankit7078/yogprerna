@@ -17,9 +17,9 @@ export default function SearchBar({ searchTerm, onSearchChange }: Props) {
           placeholder="Search courses by title..."
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="border border-[var(--primary-border)] rounded-custom py-2 pl-12 pr-6 w-full focus:outline-none focus:ring-2 focus:ring-[var(--primary-border)] shadow-custom"
+          className="border border-[var(--primary-border)] paragraph rounded-custom py-2 pl-10 pr-6 w-full focus:outline-none focus:ring-2 focus:ring-[var(--primary-border)] shadow-custom"
         />
-        <CiSearch size={18} className="absolute left-4 top-1/2 -translate-y-1/2" />
+        <CiSearch size={16} className="absolute left-4 top-1/2 -translate-y-1/2" />
       </div>
     </div>
   );

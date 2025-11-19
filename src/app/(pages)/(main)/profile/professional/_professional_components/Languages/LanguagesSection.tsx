@@ -1,7 +1,9 @@
+'use client'
+
 import { AllLanaguagesProps, UserProps } from "@/types/types";
 import React, { useState } from "react";
-import { LuPen, LuTarget } from "react-icons/lu";
 import LanguagesModal from "./LanguagesModal";
+import { Pen, Target } from "lucide-react";
 
 export default function LanguagesSection({
   profile,
@@ -18,7 +20,7 @@ export default function LanguagesSection({
       <div className="bg-[var(--primary-heading-bg)] text-[var(--secondary-text)] px-6 py-4">
         <div className="flex items-center justify-between">
           <h2 className="heading font-bold flex items-center space-x-2">
-            <LuTarget className="h-4 w-4 text-[var(--text-hover-color)]" />
+            <Target className="h-4 w-4 text-[var(--text-hover-color)]" />
             <span>Languages</span>
             <span className="text-[var(--text-hover-color)] bg-[var(--primary-icon-l)] px-2 py-1 rounded-full paragraph font-medium">
               {profile?.languages.length}
@@ -28,7 +30,7 @@ export default function LanguagesSection({
             onClick={() => setShowLanguagesEditForm(true)}
             className="text-[var(--text-hover-color)] bg-[var(--primary-icon-l)] cursor-pointer p-2 rounded-lg transition-all"
           >
-            <LuPen className="h-4 w-4" />
+            <Pen className="h-4 w-4" />
           </button>
         </div>
       </div>
@@ -46,7 +48,7 @@ export default function LanguagesSection({
           </div>
         ) : (
           <div className="text-center py-10 space-y-3 text-[var(--found-text)]">
-            <LuTarget className="h-12 w-12 mx-auto" />
+            <Target className="h-12 w-12 mx-auto" />
             <p className="italic">
               Add languages you speak to connect with more people...
             </p>

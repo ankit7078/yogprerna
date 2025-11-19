@@ -1,10 +1,12 @@
+'use client'
+
 import { PropertyProps, UserProps } from "@/types/types";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { LuAward, LuCalendar, LuMap, LuPen } from "react-icons/lu";
 import EditExperienceModal from "./ExperienceModal";
 import API from "@/contexts/API";
 import { getPropertyDetails } from "../../../../../../../contexts/Callbacks";
 import { ButtonGroup } from "@/common/ButtonGroup";
+import { Award, Calendar, MapPin, Pen } from "lucide-react";
 
 export default function ExperienceSection({
   profile,
@@ -69,7 +71,7 @@ export default function ExperienceSection({
       <div className="bg-[var(--primary-heading-bg)] text-[var(--secondary-text)] px-6 py-4 ">
         <div className="flex items-center justify-between">
           <h2 className="sub-heading font-bold flex items-center space-x-2">
-            <LuAward className="h-4 w-4 text-[var(--text-hover-color)]" />
+            <Award className="h-4 w-4 text-[var(--text-hover-color)]" />
             <span>Experience</span>
             <span className="text-[var(--text-hover-color)] bg-[var(--primary-icon-l)] px-2 py-1 rounded-full paragraph font-medium">
               {profile?.experiences?.length ?? 0}
@@ -79,7 +81,7 @@ export default function ExperienceSection({
             onClick={() => setShowEditModal(true)}
             className="text-[var(--text-hover-color)] bg-[var(--primary-icon-l)] cursor-pointer p-2 rounded-lg transition-all"
           >
-            <LuPen className="h-4 w-4" />
+            <Pen className="h-4 w-4" />
           </button>
         </div>
       </div>
@@ -125,11 +127,11 @@ export default function ExperienceSection({
                             </p>
                             <div className="flex items-center space-x-4 text-sm text-gray-600">
                               <div className="flex items-center space-x-1">
-                                <LuMap className="h-4 w-4" />
+                                <MapPin className="h-4 w-4" />
                                 <span>{expItem.location}</span>
                               </div>
                               <div className="flex items-center space-x-1">
-                                <LuCalendar className="h-4 w-4" />
+                                <Calendar className="h-4 w-4" />
                                 <span>
                                   {new Date(
                                     expItem.start_date
@@ -160,7 +162,7 @@ export default function ExperienceSection({
           </div>
         ) : (
           <div className="text-center space-y-3 py-10  text-[var(--found-text)]">
-            <LuAward className="h-12 w-12 mx-auto" />
+            <Award className="h-12 w-12 mx-auto" />
             <p className="italic">
               Add your work experience to showcase your professional journey...
             </p>

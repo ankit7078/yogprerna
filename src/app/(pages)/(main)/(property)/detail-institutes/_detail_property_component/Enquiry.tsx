@@ -35,7 +35,7 @@ const EnquiryForm: React.FC = () => {
 
   return (
     <div
-      className="m-2 sm:m-0 bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom shadow-custom p-6 "
+      className="bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom shadow-custom p-5"
       id="enquiry"
     >
       <h2 className="heading font-semibold mb-4 border-b border-[var(--primary-border)] pb-2">

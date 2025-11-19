@@ -1,5 +1,5 @@
 "use client";
-// No useState needed here anymore for tabs
+
 import React from 'react';
 import SettingsHeader from './SettingHeader';
 import SettingsTabs from './SettingsTabs';
@@ -12,7 +12,6 @@ import UpdateScheduleSettings from './tabs/UpdateScheduleSettings';
 import BillingSettings from './tabs/BillingSettings';
 import QuestionsSettings from './tabs/QuestionsSettings';
 
-// Accept 'tab' as a prop
 const SettingsPage = ({ tab }: { tab?: string }) => {
   const activeTab = tab || 'Account';
 

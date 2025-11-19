@@ -1,11 +1,12 @@
-// import { getDegreeById, getInstituteById } from "@/contexts/Callbacks";
+'use client'
+
 import {
   AllDegreeAndInstituteProps,
   EducationProps,
   UserProps,
 } from "@/types/types";
+import { Pen } from "lucide-react";
 import React from "react";
-import { LuPen } from "react-icons/lu";
 
 export default function EducationList({
   profile,
@@ -55,7 +56,7 @@ export default function EducationList({
                 onClick={() => handleEdit(edu)}
                 className="p-2 rounded-custom transition-all"
               >
-                <LuPen className="h-4 w-4" />
+                <Pen className="h-4 w-4" />
               </button>
             </div>
           </div>

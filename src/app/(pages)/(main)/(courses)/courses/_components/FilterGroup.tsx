@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from 'react';
 import { FilterItem, FilterGroupKey } from '@/types';
-import { Search } from './icons';
 import { InputGroup } from '@/common/FormComponents';
 
 type Props = {
@@ -31,12 +30,12 @@ export default function FilterGroup({
   }, [items, searchTerm]);
 
   return (
-    <div className="rounded-custom bg-[var(--primary-bg)] shadow-custom">
-      <div className="p-5 border-b border-[var(--primary-border)]">
+    <div className="rounded-custom bg-[var(--primary-bg)] shadow-custom p-5">
+      <div className="">
         <h3 className="font-semibold sub-heading text-[var(--secondary-text)]">{title}</h3>
       </div>
-      <div className="p-5">
-        <div className="relative mb-3">
+      <div className="">
+        <div className="relative my-2">
           <InputGroup
             type='text'
             placeholder={searchPlaceholder}
@@ -48,7 +47,7 @@ export default function FilterGroup({
           {filteredItems.map(item => (
             <label
               key={item.id}
-              className="flex items-center gap-2 cursor-pointer p-2 rounded-custom hover:bg-[var(--secondary-bg)] hover:text-[var(--secondary-text)] text-[var(--primary-text)] transition-colors"
+              className="flex items-center gap-2 cursor-pointer p-1 rounded-custom hover:bg-[var(--secondary-bg)] hover:text-[var(--secondary-text)] text-[var(--primary-text)] transition-colors"
             >
               <input
                 type="checkbox"

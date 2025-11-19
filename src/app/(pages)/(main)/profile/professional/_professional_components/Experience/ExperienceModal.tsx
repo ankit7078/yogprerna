@@ -1,9 +1,11 @@
+'use client'
+
 import { ExperienceProps, PropertyProps, UserProps } from "@/types/types";
 import React, { useState } from "react";
-import { LuPlus, LuX } from "react-icons/lu";
 import ExpereienceList from "./modalComponents/ExpereienceList";
 import ExpereienceForm from "./modalComponents/ExpereienceForm";
 import { ButtonGroup } from "@/common/ButtonGroup";
+import { X } from "lucide-react";
 
 const EditExperienceModal = ({
   profile,
@@ -48,7 +50,7 @@ const EditExperienceModal = ({
               onClick={onClose}
               className="text-[var(--text-color-primary)] hover:text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)] cursor-pointer p-1 rounded-md transition-all"
             >
-              <LuX className="h-4 w-4" />
+              <X className="h-4 w-4" />
             </button>
           </div>
         </div>

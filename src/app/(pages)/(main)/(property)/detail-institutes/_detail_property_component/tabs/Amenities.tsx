@@ -101,7 +101,7 @@ export default function AmenitiesPage() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <div className="flex items-baseline justify-between mb-3">
-                  <h2 className="sub-heading  font-bold">
+                  <h2 className="sub-heading font-semibold">
                     {activeTab}
                   </h2>
                   <span className="paragraph font-medium">

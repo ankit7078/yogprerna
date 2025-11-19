@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from 'react';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const SettingsTabs: React.FC = () => {
   const tabs = [
@@ -40,7 +40,6 @@ const SettingsTabs: React.FC = () => {
   };
 
   useEffect(() => {
-   
     const el = scrollRef.current;
     if (el) {
       checkScroll();
@@ -81,7 +80,7 @@ const SettingsTabs: React.FC = () => {
             onClick={() => scrollBy(-200)}
             className="absolute left-0 top-0 bottom-0 z-10 w-8 bg-gradient-to-r from-gray-950 to-transparent flex items-center justify-start text-white hover:text-gray-300"
           >
-            <FiChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
         )}
         <div
@@ -93,7 +92,6 @@ const SettingsTabs: React.FC = () => {
               <button
                 key={tab}
                 data-tab={tab}
-                // Use the new URL-based click handler
                 onClick={() => handleTabClick(tab)}
                 className={`px-4 py-2 my-1 text-xs cursor-pointer rounded-full shrink-0
                   ${activeTab === tab
@@ -112,7 +110,7 @@ const SettingsTabs: React.FC = () => {
             onClick={() => scrollBy(200)}
             className="absolute right-0 top-0 bottom-0 z-10 w-8 bg-gradient-to-l from-gray-950 to-transparent flex items-center justify-end text-white hover:text-gray-300"
           >
-            <FiChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-5 h-5" />
           </button>
         )}
       </div>

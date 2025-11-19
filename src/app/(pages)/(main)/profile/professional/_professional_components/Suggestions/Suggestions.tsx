@@ -1,7 +1,8 @@
+'use client'
+
 import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import { generateSlugNonLowerCase } from "@/contexts/Callbacks";
 import API from "@/contexts/API";
 import { UserProps } from "@/types/types";
 

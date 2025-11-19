@@ -1,8 +1,10 @@
+'use client'
+
 import React, { useState } from "react";
-import { LuDownload, LuEye, LuPlus } from "react-icons/lu";
 import { ResumeModal } from "./ResumeModal";
 import { UserProps } from "@/types/types";
 import Link from "next/link";
+import { Download, Eye, Plus } from "lucide-react";
 
 export default function ResumeSection({
   profile,
@@ -16,7 +18,7 @@ export default function ResumeSection({
     <div className="bg-[var(--primary-bg)] text-[var(--primary-text)] rounded-custom shadow-custom overflow-hidden">
       <div className="bg-[var(--primary-heading-bg)] text-[var(--secondary-text)] px-6 py-4">
         <h3 className="heading font-bold flex items-center space-x-2">
-          <LuDownload className="h-4 w-4 text-[var(--text-hover-color)]" />
+          <Download className="h-4 w-4 text-[var(--text-hover-color)]" />
           <span>Resume/CV</span>
         </h3>
       </div>
@@ -29,21 +31,21 @@ export default function ResumeSection({
                 target="_blank"
                 className="bg-[var(--secondary-bg)] text-[var(--primary-text)] px-4 py-3 rounded-custom flex items-center justify-center space-x-2 transition-all"
               >
-                <LuEye className="h-4 w-4" />
+                <Eye className="h-4 w-4" />
                 <span className="paragraph font-medium">View</span>
               </Link>
               <button
                 onClick={() => setShowUploadModal(true)}
                 className="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-xl flex items-center justify-center space-x-2 transition-all shadow-lg hover:shadow-xl"
               >
-                <LuDownload className="h-4 w-4" />
+                <Download className="h-4 w-4" />
                 <span className="text-sm font-medium">Update</span>
               </button>
             </div>
           </div>
         ) : (
           <div className="text-center py-8 space-y-3 text-[var(--found-text)]">
-            <LuDownload className="h-10 w-10 mx-auto" />
+            <Download className="h-10 w-10 mx-auto" />
             <p className="italic">
               Upload your resume to showcase your qualifications
             </p>
@@ -54,7 +56,7 @@ export default function ResumeSection({
              transition-all duration-300 ease-in-out  
              animate-fadeIn mx-auto  flex items-center justify-center space-x-2 transition-all"
             >
-              <LuPlus className="h-4 w-4"/>
+              <Plus className="h-4 w-4" />
               <span className="font-medium">Upload CV</span>
             </button>
           </div>

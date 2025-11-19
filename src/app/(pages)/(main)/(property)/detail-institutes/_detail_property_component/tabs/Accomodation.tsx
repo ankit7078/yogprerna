@@ -41,8 +41,8 @@ export default function AccommodationPage() {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   return (
-    <div className="space-y-6 p-5 text-[var(--primary-text)]">
-      <h2 className="heading font-bold">
+    <div className="space-y-3 p-5 text-[var(--primary-text)]">
+      <h2 className="heading font-semibold">
         Accommodation Options
       </h2>
       <div className="space-y-6 max-w-6xl mx-auto">

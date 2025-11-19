@@ -2,14 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { Course, ActiveFilters, FilterGroupKey } from '@/types';
-import { Filter, X } from './icons';
-import HeroSection from './HeroSection';
-import SearchBar from './SearchBar';
 import Sidebar from './Sidebar';
 import CourseListHeader from './CourseListHeader';
 import CourseGrid from './CourseGrid';
 import Pagination from './Pagination';
 import Breadcrumb from '@/components/breadcrumbs/breadcrumbs';
+import { Filter, X } from 'lucide-react';
 
 type Props = {
   filteredCourses: Course[];
@@ -32,7 +30,7 @@ export default function CourseListPage({
 }: Props) {
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 6;
+  const ITEMS_PER_PAGE = 5;
 
   useEffect(() => {
     setCurrentPage(1);
@@ -46,22 +44,10 @@ export default function CourseListPage({
 
   return (
     <div className="bg-[var(--secondary-bg)] text-[var(--secondary-text)] max-w-7xl mx-auto px-2  sm:px-8 py-6">
-      <div className="py-6">
+      <div className="pb-6">
         <Breadcrumb items={[{ label: "Courses", href: "/courses" }]} />
       </div>
       <div className="space-y-6">
-        <HeroSection id="hero-section" />
-
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <h2 className="heading font-semibold">
-            Wellness Experiences
-          </h2>
-          <div className="w-full max-w-2xl">
-            <SearchBar searchTerm={searchTerm} onSearchChange={onSearchChange} />
-          </div>
-        </div>
-
-
         <div className="flex flex-col lg:flex-row gap-6 relative">
           {/* --- Sidebar (Desktop) --- */}
           <aside className="hidden lg:block w-full lg:w-1/4 self-start">
@@ -95,9 +81,9 @@ export default function CourseListPage({
           <main className="w-full lg:w-3/4">
             <button
               onClick={() => setShowMobileFilters(true)}
-              className="lg:hidden z-30 mb-4 p-3 rounded-lg shadow-md bg-teal-600 text-white flex items-center justify-center gap-2"
+              className="lg:hidden z-30 mb-4 p-3 heading-sm rounded-custom shadow-custom bg-[var(--text-hover-color)] text-white flex items-center justify-center gap-2"
             >
-              <Filter size={20} />
+              <Filter size={16} />
               <span>Show Filters</span>
             </button>
 

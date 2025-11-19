@@ -1,9 +1,11 @@
+'use client'
+
 import { AllDegreeAndInstituteProps, UserProps } from "@/types/types";
 import React, { useState } from "react";
-import { LuCalendar, LuPen, LuTarget } from "react-icons/lu";
 import { PiStudent } from "react-icons/pi";
 import EducationModal from "./EducationModal";
 import { ButtonGroup } from "@/common/ButtonGroup";
+import { Calendar, Pen, Target } from "lucide-react";
 
 export default function EducationSection({
   profile,
@@ -30,7 +32,7 @@ export default function EducationSection({
             onClick={() => setShowEditModal(true)}
             className="text-[var(--text-hover-color)] bg-[var(--primary-icon-l)] cursor-pointer p-2 rounded-custom transition-all"
           >
-            <LuPen className="h-4 w-4" />
+            <Pen className="h-4 w-4" />
           </button>
         </div>
       </div>
@@ -57,7 +59,7 @@ export default function EducationSection({
                   </p>
                   <div className="flex items-center space-x-4 mt-2 paragraph">
                     <div className="flex items-center space-x-1">
-                      <LuCalendar className="h-4 w-4" />
+                      <Calendar className="h-4 w-4" />
                       <span>
                         {new Date(edu.start_date).toLocaleDateString("en-US", {
                           month: "short",
@@ -79,7 +81,7 @@ export default function EducationSection({
           </div>
         ) : (
           <div className="text-center py-10 space-y-3 text-[var(--found-text)]">
-            <LuTarget className="h-12 w-12 mx-auto" />
+            <Target className="h-12 w-12 mx-auto" />
             <p className="italic">
               Add your education details to highlight your academic
               background...

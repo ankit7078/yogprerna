@@ -1,5 +1,6 @@
+'use client'
+
 import React, { useState } from "react";
-import { LuPlus, LuX } from "react-icons/lu";
 import EducationList from "./modalComponents/EducationList";
 import EducationForm from "./modalComponents/EducationForm";
 import {
@@ -8,6 +9,7 @@ import {
   UserProps,
 } from "@/types/types";
 import { ButtonGroup } from "@/common/ButtonGroup";
+import { X } from "lucide-react";
 
 const EducationModal = ({
   profile,
@@ -50,7 +52,7 @@ const EducationModal = ({
               onClick={onClose}
               className="text-[var(--text-color-primary)] hover:text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)] cursor-pointer p-2 rounded-lg transition-all"
             >
-              <LuX className="h-4 w-4" />
+              <X className="h-4 w-4" />
             </button>
           </div>
         </div>

@@ -18,14 +18,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
         </li>
         {items.map((item, index) => (
           <li key={index}>
-            <div className="flex items-center text-[var(--primary-border)]">
+            <div className="flex items-center text-[var(--secondary-text)]">
               <LuChevronRight className="w-4 h-4 " />
               {item.href ? (
                 <Link href={item.href} className=" font-medium ">
                   {item.label}
                 </Link>
               ) : (
-                <span className="font-medium text-gray-500">{item.label}</span>
+                <span className="font-medium text-white">{item.label}</span>
               )}
             </div>
           </li>

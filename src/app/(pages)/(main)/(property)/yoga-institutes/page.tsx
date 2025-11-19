@@ -9,6 +9,7 @@ import Pagination from "./_property_components/Pagination";
 import MobileFiltersCanvas from "./_property_components/MobileFilters"; // 1. IMPORT the new component
 import { getActiveFilters } from "./utils/filterUtils";
 import ResultsHeader from "./_property_components/ResultsHeader";
+import Breadcrumb from "@/components/breadcrumbs/breadcrumbs";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -48,7 +49,6 @@ export default function InstitutesPage() {
 
   return (
     <div className="sm:h-180 flex flex-col ">
-
       {/* 2. RENDER the new component here */}
       <MobileFiltersCanvas
         isOpen={showMobileFilters}
@@ -61,12 +61,15 @@ export default function InstitutesPage() {
 
       {/* 3. The old JSX block for the mobile menu has been REMOVED from here */}
 
-      <div className="flex-grow max-w-7xl w-full mx-auto  sm:px-6 lg:px-8 sm:py-8 overflow-hidden">
-        <div className="flex lg:flex-row gap-6 sm:gap-8 h-full">
+      <div className="flex-grow max-w-7xl w-full mx-auto  sm:px-8 px-2 pb-8 overflow-hidden">
+         <div className="mb-4">
+        <Breadcrumb items={[{ label: "Courses", href: "/courses" }]} />
+      </div>
+        <div className="flex lg:flex-row gap-6 h-full">
           {/* Left Column (Desktop Filters) */}
           <div className="bg-[var(--primary-bg)] hidden lg:block rounded-custom shadow-custom">
             <div className=" lg:w-80 flex-shrink-0 h-full overflow-y-auto hide-scrollbar pr-2">
-              <div className="p-6">
+              <div className="p-5">
                 <FiltersContent
                   filters={filters}
                   setFilters={setFilters}

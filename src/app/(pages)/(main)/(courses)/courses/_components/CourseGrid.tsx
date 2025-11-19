@@ -3,7 +3,7 @@
 import React from 'react';
 import { Course } from '@/types';
 import CourseCard from './CourseCard';
-import { CiSearch } from 'react-icons/ci';
+import { Search } from 'lucide-react';
 
 type Props = {
   courses: Course[];
@@ -15,7 +15,7 @@ export default function CourseGrid({ courses, onSelectCourse }: Props) {
     return (
       <div className="text-center py-10 bg-[var(--primary-bg)] rounded-custom shadow-custom">
         <div className="w-24 h-24 bg-[var(--secondary-bg)] rounded-full flex items-center justify-center mx-auto mb-4">
-          <CiSearch className="h-12 w-12 text-[var(--text-hover-color)]" />
+          <Search className="h-12 w-12 text-[var(--text-hover-color)]" />
         </div>
         <h3 className="heading font-medium">No courses found</h3>
         <p className="text-[var(--primary-text)] mt-1">Try adjusting your filters or search term.</p>

@@ -1,8 +1,10 @@
+'use client'
+
 import React, { useEffect, useState } from "react";
-import { LuCamera } from "react-icons/lu";
 import BannerCropModal from "../../_modals/BannerModal";
 import { UserProps } from "@/types/types";
 import { DeleteBannerModal } from "../../_modals/DeleteBannerModal";
+import { Camera } from "lucide-react";
 
 export default function Banner({ profile }: { profile: UserProps | null }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -46,7 +48,7 @@ export default function Banner({ profile }: { profile: UserProps | null }) {
         >
           <div className="absolute top-6 right-6 flex space-x-2">
             <label className="bg-[var(--primary-icon-l)] backdrop-blur-sm hover:bg-[var(--text-color-primary)] text-[var(--text-hover-color)] px-3 py-2 rounded-custom cursor-pointer flex items-center space-x-2 transition-all shadow-custom">
-              <LuCamera className="h-4 w-4" />
+              <Camera className="h-4 w-4" />
               <span className="text-xs font-medium">Edit</span>
               <input
                 type="file"

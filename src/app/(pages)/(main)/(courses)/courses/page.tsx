@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { coursesData } from '../../../../data/lib/coursesdata';
-import { Course, ActiveFilters } from '../../../../../../types/types';
+import { Course, ActiveFilters } from '../../../../../types/types';
 import CourseListPage from './_components/CourseListPage';
 import CourseDetailPage from "../detailpage/CourseDetailPage"
 export default function CourseBrowser() {

@@ -1,12 +1,13 @@
 
 import React from "react";
-import { FaMapMarkerAlt, FaBuilding, FaGlobe } from "react-icons/fa";
+import { SlLocationPin } from "react-icons/sl";
+import { PiGlobeStandLight } from "react-icons/pi";
 
 const Overview: React.FC = () => {
   return (
     <div className="space-y-6 p-5 text-[var(--primary-text)]">
       <div>
-        <h2 className="heading font-bold text-[var(--primary-text)] mb-3">
+        <h2 className="heading font-semibold mb-3">
           About Iyengar Yoga Center
         </h2>
         <p className="leading-relaxed">
@@ -25,7 +26,7 @@ const Overview: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="bg-[var(--secondary-bg)]  shadow-custom rounded-custom p-5">
           <div className="flex items-center gap-2 pb-2">
-            <FaMapMarkerAlt className="h-4 w-4 text-[var(--text-hover-color)]" />
+            {/* <FaMapMarkerAlt className="h-4 w-4 text-[var(--text-hover-color)]" /> */}
             <h3 className="sub-heading font-semibold ">Location</h3>
           </div>
           <p className="mb-2">
@@ -33,18 +34,18 @@ const Overview: React.FC = () => {
             Jhadi, Chandreshwar Nagar, Rishikesh, Uttarakhand, India
           </p>
           <div className="flex items-center gap-2">
-            <FaMapMarkerAlt className="h-4 w-4 text-[var(--text-hover-color)]" />
+            <SlLocationPin className="h-4 w-4 text-[var(--text-hover-color)]" />
             <p>Rishikesh, Uttarakhand 249137</p>
           </div>
-          <div className="flex items-center gap-2 mt-2">
-            <FaGlobe className="h-4 w-4 text-[var(--text-hover-color)]" />
-            <span>India</span>
+          <div className="flex items-center gap-2">
+            <PiGlobeStandLight className="h-4 w-4 text-[var(--text-hover-color)]" />
+            <p>India</p>
           </div>
         </div>
 
         <div className="bg-[var(--secondary-bg)] shadow-custom rounded-custom p-5">
           <div className="flex items-center gap-2 pb-3">
-            <FaBuilding className="h-4 w-4 text-[var(--text-hover-color)]" />
+            {/* <FaBuilding className="h-4 w-4 text-[var(--text-hover-color)]" /> */}
             <h3 className="sub-heading font-semibold ">
               Property Details
             </h3>

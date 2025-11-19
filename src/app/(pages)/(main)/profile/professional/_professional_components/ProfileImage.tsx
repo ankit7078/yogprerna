@@ -1,9 +1,11 @@
+'use client'
+
 import { UserProps } from "@/types/types";
 import React, { useEffect, useState } from "react";
-import { LuCamera, LuTrash } from "react-icons/lu";
 import ProfileCropModal from "../../_modals/ProfileCropModal";
 import { DeleteProfileModal } from "../../_modals/DeleteProfileModal";
 import Image from "next/image";
+import { Camera, Trash } from "lucide-react";
 
 export default function ProfileImage({
   profile,
@@ -61,7 +63,7 @@ export default function ProfileImage({
       </div>
       <div className="absolute -bottom-2 -right-2 flex space-x-2">
         <label className="bg-[var(--blue-bg)] text-[var(--text-color-primary)] p-2 rounded-full cursor-pointer hover:shadow-md transition">
-          <LuCamera className="w-4 h-4" />
+          <Camera className="w-4 h-4" />
           <input
             type="file"
             accept="image/*"
@@ -74,7 +76,7 @@ export default function ProfileImage({
             onClick={() => setShowDeleteProfileModal(true)}
             className="bg-red-600 border-2 text-white p-2 rounded-full hover:bg-red-700 transition"
           >
-            <LuTrash className="w-4 h-4" />
+            <Trash className="w-4 h-4" />
           </button>
         )}
       </div>

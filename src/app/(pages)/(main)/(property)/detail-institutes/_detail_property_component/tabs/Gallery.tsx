@@ -59,10 +59,10 @@ export default function GalleryTab() {
   };
 
   return (
-    <div className="space-y-10 p-4 text-[var(--primary-text)]">
+    <div className="space-y-6 p-5 text-[var(--primary-text)]">
       {galleries.map((gallery, gIdx) => (
         <div key={gIdx}>
-          <h2 className="heading font-bold mb-4">
+          <h2 className="heading font-semibold mb-3">
             {gallery.title}
           </h2>
 

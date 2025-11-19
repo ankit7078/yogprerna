@@ -176,19 +176,22 @@ const DesktopFooter = () => {
         <hr className="border-[var(--primary-border)] my-10 " />
         <div className="border-b border-[var(--primary-border)] mb-6">
           <div className="flex flex-wrap items-center justify-center space-y-4 md:space-y-0 text-center md:text-left">
-            <div className="flex flex-wrap justify-center space-x-6 mb-6 sm:mb-3 gap-y-2 sm:gap-y-0">
-              <Link href="/profilesetting" className="hover:text-[var(--text-hover-color)] transition-colors">Profile</Link>
+            <div className="flex flex-wrap justify-center heading-sm space-x-6 mb-6 sm:mb-3 gap-y-2 sm:gap-y-0">
+              <Link href="/setting" className="hover:text-[var(--text-hover-color)] transition-colors">Profile</Link>
+              <Link href="/profile/professional" className="hover:text-[var(--text-hover-color)] transition-colors">Professional</Link>
               <Link href="/yoga-blog" className="hover:text-[var(--text-hover-color)] transition-colors">Blog</Link>
+              <Link href="/courses" className="hover:text-[var(--text-hover-color)] transition-colors">Course</Link>
+              <Link href="/detail-course" className="hover:text-[var(--text-hover-color)] transition-colors">Detail Course</Link>
               <Link href="/yoga-institutes" className="hover:text-[var(--text-hover-color)] transition-colors">Institutes</Link>
               <Link href="/detail-institutes" className="hover:text-[var(--text-hover-color)] transition-colors">Institutes-detail</Link>
               <Link href="/compare/test" className="hover:text-[var(--text-hover-color)] transition-colors">Compare</Link>
-              <Link href="/profile/professional" className="hover:text-[var(--text-hover-color)] transition-colors">Professional</Link>
               <Link href="/search/MCA" className="hover:text-[var(--text-hover-color)] transition-colors">Search</Link>
               <Link href="/events" className="hover:text-[var(--text-hover-color)] transition-colors">Events</Link>
               <Link href="/event-details/events/1" className="hover:text-[var(--text-hover-color)] transition-colors">Event-detail</Link>
-              <Link href="/courses" className="hover:text-[var(--text-hover-color)] transition-colors">Course</Link>
+              <Link href="/retreats" className="hover:text-[var(--text-hover-color)] transition-colors">Retreats</Link>
+              <Link href="/retreat-details" className="hover:text-[var(--text-hover-color)] transition-colors">Retreat Detail</Link>
             </div>
-            <div className="flex flex-wrap justify-center space-x-6 mb-6 sm:mb-3 gap-y-2 sm:gap-y-0">
+            <div className="flex flex-wrap justify-center heading-sm space-x-6 mb-6 sm:mb-3 gap-y-2 sm:gap-y-0">
               <Link href="/about" className="hover:text-[var(--text-hover-color)] transition-colors">About us</Link>
               <Link href="/blog" className="hover:text-[var(--text-hover-color)] transition-colors">Blog</Link>
               <Link href="/news" className="hover:text-[var(--text-hover-color)] transition-colors">News & Update</Link>
@@ -198,7 +201,7 @@ const DesktopFooter = () => {
               <Link href="/contact" className="hover:text-[var(--text-hover-color)] transition-colors">Contact us</Link>
             </div>
           </div>
-          <div className="flex flex-wrap items-center justify-center   text-center md:text-left mb-6 ">
+          <div className="flex flex-wrap items-center justify-center  heading-sm text-center md:text-left mb-6 ">
             <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2">
               <Link href="/videos" className="flex items-center hover:text-[var(--text-hover-color)] transition-colors">
                 Ask Community

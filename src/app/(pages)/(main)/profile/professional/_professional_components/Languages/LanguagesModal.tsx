@@ -1,6 +1,7 @@
+'use client'
+
 import { ButtonGroup } from "@/common/ButtonGroup";
 import API from "@/contexts/API";
-// import { getLanguageNameById } from "@/contexts/Callbacks";
 import {
   AllLanaguagesProps,
   SelectOptionProps,

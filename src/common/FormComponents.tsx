@@ -3,14 +3,14 @@ import React from 'react';
 
 export const InputGroup = ({ label, id, type = 'text', placeholder = '' }) => (
     <div>
-        <label htmlFor={id} className="block paragraph text-[var(--primary-text)] mb-1">
+        <label htmlFor={id} className="block  text-xs text-[var(--primary-text)] mb-1">
             {label}
         </label>
         <input
             type={type}
             id={id}
             placeholder={placeholder}
-            className="w-full paragraph px-4 py-2 border border-[var(--primary-border)] rounded-custom focus:ring-1 focus:ring-[var(--primary-border)] focus:outline-none text-[var(--secondary-text)] bg-transparent"
+            className="w-full paragraph px-4 py-1.5 border border-[var(--primary-border)] rounded-custom focus:ring-1 focus:ring-[var(--primary-border)] focus:outline-none text-[var(--secondary-text)] bg-transparent"
         />
     </div>
 );
@@ -51,7 +51,6 @@ export const SelectGroup = ({ label, id, options, placeholder, defaultValue = ""
                     <option key={option} value={option}>{option}</option>
                 ))}
             </select>
-            {/* Replaced FiChevronDown with an inline SVG */}
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -110,7 +109,6 @@ export const RangeSlider = ({ label, description, defaultValue, showValueBox = f
                 '--thumb-border': '#374151',
             } as React.CSSProperties}
         />
-        {/* Simple way to style range thumb in Tailwind is tricky, adding a style block */}
         <style>{`
      .range-thumb::-webkit-slider-thumb {
        -webkit-appearance: none;

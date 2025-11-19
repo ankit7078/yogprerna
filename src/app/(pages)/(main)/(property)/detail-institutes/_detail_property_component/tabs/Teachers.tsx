@@ -29,7 +29,7 @@ export default function TeachersPage() {
   return (
     <section className="p-5 bg-[var(--primary-bg)] text-[var(--primary-text)] w-full ">
       <div className="">
-        <h2 className="heading font-bold mb-3">
+        <h2 className="heading font-semibold mb-3">
           Our Expert Teachers
         </h2>
       </div>

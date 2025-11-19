@@ -9,11 +9,16 @@ import Amenities from "./tabs/Amenities";
 import WorkingHours from "./tabs/WorkingHours";
 import Teachers from "./tabs/Teachers";
 import Faqs from "./tabs/Faqs";
+import Courses from "./tabs/Courses"
 import Reviews from "./tabs/Reviews";
+import Retreat from "./tabs/Retreat"
 import EnquiryForm from "./Enquiry";
+
 
 const tabs = [
   { id: "overview1", label: "Overview" },
+  { id: "courses", label: "Courses" },
+  { id: "retreat", label: "Retreat" },
   { id: "gallery", label: "Gallery" },
   { id: "accomodation", label: "Accomodation" },
   { id: "amenities", label: "Amenities" },
@@ -89,7 +94,7 @@ const CourseDetails: React.FC = () => {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                className={`relative py-3 px-3 whitespace-nowrap cursor-pointer font-medium sub-heading-1 transition-colors duration-200 ${activeTab === tab.id
+                className={`relative py-3 px-3 whitespace-nowrap cursor-pointer font-medium heading-sm transition-colors duration-200 ${activeTab === tab.id
                   ? "text-[var(--text-hover-color)] bg-[var(--secondary-bg)] "
                   : "text-[var(--primary-text)] hover:text-[var(--secondary-text)]"
                   }`}
@@ -114,8 +119,10 @@ const CourseDetails: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-[var(--primary-bg)] sm:rounded-b-lg sm:shadow-custom overflow-hidden">
+      <div className="bg-[var(--primary-bg)] sm:rounded-b-lg shadow-custom overflow-hidden">
         {activeTab === "overview1" && <Overview />}
+        {activeTab === "courses" && <Courses />}
+        {activeTab === "retreat" && <Retreat />}
         {activeTab === "gallery" && <Gallery />}
         {activeTab === "accomodation" && <Accomodation />}
         {activeTab === "amenities" && <Amenities />}
@@ -161,7 +168,7 @@ const CourseDetails: React.FC = () => {
         </div>
       )}
 
-      <div className="mt-6">
+      <div className="mt-6 px-2 sm:px-0">
         <EnquiryForm />
       </div>
     </div>

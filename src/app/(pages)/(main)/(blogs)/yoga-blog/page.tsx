@@ -15,6 +15,7 @@ import {
   mockCategories,
 } from "../../../../data/mock-data";
 import { ButtonGroup } from "@/common/ButtonGroup";
+import { Search } from "lucide-react";
 
 // Helper function to enrich blogs with author + category details
 const getEnrichedBlogs = (
@@ -99,22 +100,22 @@ const BlogPage: React.FC = () => {
       {loading ? (
         <BlogLoader />
       ) : (
-        <div className="bg-[var(--secondary-bg)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-[var(--secondary-bg)] max-w-7xl mx-auto px-2 sm:px-8 py-6">
+          <div className="mb-4">
             <Breadcrumb items={[{ label: "Blog", href: "/yoga-blog" }]} />
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-5">
+          <div className="space-y-6">
             {/* Featured Blog */}
             {featuredBlog && !searchTerm && (
               <FeaturedBlog blog={featuredBlog} />
             )}
 
             {/* Search + Count Bar */}
-            <div className="mb-6 bg-[var(--primary-bg)] text-[var(--text-color)] p-4 rounded-custom shadow-custom">
-              <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <div className="bg-[var(--primary-bg)] text-[var(--text-color)] p-5 rounded-custom shadow-custom">
+              <div className="flex flex-col lg:flex-row gap-4 sm:items-center  justify-between">
                 <div className="relative flex-1 max-w-md w-full">
-                  <LuSearch className="absolute left-3  top-1/2 transform -translate-y-1/2 text-[var(--primary-text-h)] h-4 w-4" />
+                  <Search className="absolute left-3  top-1/2 transform -translate-y-1/2 text-[var(--primary-text-h)] h-4 w-4" />
                   <input
                     type="text"
                     placeholder="Search blogs, tags, or topics..."
@@ -155,7 +156,7 @@ const BlogPage: React.FC = () => {
 
             {/* Blog Cards Grid */}
             <div
-              className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8`}
+              className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`}
             >
               {currentBlogs.map((blog, index) => (
                 <BlogCard key={blog.uniqueId} blog={blog} index={index} />
@@ -167,7 +168,7 @@ const BlogPage: React.FC = () => {
               <div className="text-center py-16 bg-[var(--primary-bg)] rounded-custom shadow-custom">
                 <div className="max-w-md mx-auto">
                   <div className="w-24 h-24 bg-[var(--secondary-bg)] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LuSearch className="h-12 w-12 text-[var(--text-hover-color)]" />
+                    <Search className="h-12 w-12 text-[var(--text-hover-color)]" />
                   </div>
                   <h3 className="heading font-semibold text-[var(--primary-text)] mb-2">
                     No blogs found
@@ -181,7 +182,7 @@ const BlogPage: React.FC = () => {
 
             {/* ✅ Pagination */}
             {filteredBlogs.length > blogsPerPage && (
-              <div className="mt-10">
+              <div>
                 <Pagination
                   totalPages={totalPages}
                   currentPage={currentPage}

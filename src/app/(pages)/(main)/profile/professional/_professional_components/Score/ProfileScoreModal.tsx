@@ -1,21 +1,9 @@
+'use client'
+
 import React from "react";
-import {
-  LuUser,
-  LuImage,
-  LuPhone,
-  LuType,
-  LuMapPin,
-  LuFileText,
-  LuBriefcase,
-  LuGraduationCap,
-  LuSparkles,
-  LuLanguages,
-  LuDownload,
-  LuX,
-  LuCheck,
-} from "react-icons/lu";
 import ScoreProgress from "./ScoreProgress";
 import { UserProps } from "@/types/types";
+import { User, Image, Phone, Type, MapPin, FileText, Briefcase, GraduationCap, Sparkles, Languages, Download, X, Check } from "lucide-react";
 
 interface ProfileScoreModalProps {
   onClose: () => void;
@@ -30,31 +18,31 @@ const ProfileScoreModal: React.FC<ProfileScoreModalProps> = ({
 
   const scoreItems = [
     {
-      icon: LuUser,
+      icon: User,
       title: "Avatar",
       description: "Upload a clear, professional profile picture.",
       completed: (profile?.avatar?.length || 0) > 0,
     },
     {
-      icon: LuImage,
+      icon: Image,
       title: "Banner",
       description: "Add a banner image to personalize your profile background.",
       completed: (profile?.banner?.length || 0) > 0,
     },
     {
-      icon: LuPhone,
+      icon: Phone,
       title: "Alt Phone Number",
       description: "Add an alternate contact number for easier reachability.",
       completed: profile?.alt_mobile_no,
     },
     {
-      icon: LuType,
+      icon: Type,
       title: "Heading",
       description: "Add a professional headline to showcase your focus.",
       completed: profile?.heading,
     },
     {
-      icon: LuMapPin,
+      icon: MapPin,
       title: "Location",
       description: "Add your complete address to improve discoverability.",
       completed:
@@ -65,38 +53,38 @@ const ProfileScoreModal: React.FC<ProfileScoreModalProps> = ({
         profile?.country,
     },
     {
-      icon: LuFileText,
+      icon: FileText,
       title: "About",
       description: "Write a compelling summary to introduce yourself.",
       completed: profile?.about,
     },
     {
-      icon: LuBriefcase,
+      icon: Briefcase,
       title: "Work Experience",
       description: "Add your work history to strengthen your credibility.",
       completed: (profile?.experiences?.length || 0) > 0,
     },
     {
-      icon: LuGraduationCap,
+      icon: GraduationCap,
       title: "Education",
       description: "Showcase your educational background and achievements.",
       completed: (profile?.education?.length || 0) > 0,
     },
     {
-      icon: LuSparkles,
+      icon: Sparkles,
       title: "Skills",
       description: "List your skills to highlight your expertise.",
       completed: (profile?.skills?.length || 0) > 0,
     },
     {
-      icon: LuLanguages,
+      icon: Languages,
       title: "Languages",
       description:
         "List languages you speak to connect with diverse opportunities.",
       completed: (profile?.languages?.length || 0) > 0,
     },
     {
-      icon: LuDownload,
+      icon: Download,
       title: "Resume/CV",
       description: "Upload your resume to showcase your qualifications.",
       completed: profile?.resume,
@@ -119,7 +107,7 @@ const ProfileScoreModal: React.FC<ProfileScoreModalProps> = ({
             onClick={onClose}
             className="hover:text-[var(--text-hover-color)] hover:bg-[var(--primary-icon-l)] cursor-pointer p-2 rounded-custom transition-all"
           >
-            <LuX className="h-4 w-4" />
+            <X className="h-4 w-4" />
           </button>
         </div>
 
@@ -132,9 +120,8 @@ const ProfileScoreModal: React.FC<ProfileScoreModalProps> = ({
             <p>
               {scoreItems.length === completedItems
                 ? "Congratulations! Your profile is complete."
-                : `Complete ${
-                    scoreItems.length - completedItems
-                  } more sections to reach 100%`}
+                : `Complete ${scoreItems.length - completedItems
+                } more sections to reach 100%`}
             </p>
           </div>
 
@@ -147,20 +134,18 @@ const ProfileScoreModal: React.FC<ProfileScoreModalProps> = ({
               return (
                 <div
                   key={index}
-                  className={`flex items-center justify-between p-5 rounded-custom border transition-all ${
-                    item.completed
+                  className={`flex items-center justify-between p-5 rounded-custom border transition-all ${item.completed
                       ? "bg-[var(--bg-success-l)] border-0 shadow-custom"
                       : "bg-[var(--danger-button-l)] border-0 shadow-custom"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center space-x-4 text-[var(--text-color-primary)]">
                     <div
-                      className={`w-10 h-10 rounded-custom flex items-center justify-center ${
-                        item.completed ? "bg-[var(--danger-button)]" : "bg-[var(--danger-button)]"
-                      }`}
+                      className={`w-10 h-10 rounded-custom flex items-center justify-center ${item.completed ? "bg-[var(--danger-button)]" : "bg-[var(--danger-button)]"
+                        }`}
                     >
                       {item.completed ? (
-                        <LuCheck className="h-4 w-4 " />
+                        <Check className="h-4 w-4 " />
                       ) : (
                         <Icon className="h-4 w-4 " />
                       )}

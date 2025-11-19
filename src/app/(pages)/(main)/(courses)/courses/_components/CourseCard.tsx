@@ -1,9 +1,9 @@
 "use client";
 
 import React from 'react';
-import { Course } from '@/types';
-import { MapPin, Clock, Award, BookOpen, Gift, ArrowRight } from './icons';
+import { Course } from '../../../../../../types/types';
 import { ButtonGroup } from '@/common/ButtonGroup';
+import { Award, BookOpen, Clock, Gift } from 'lucide-react';
 
 type Props = {
   course: Course;
@@ -42,10 +42,7 @@ export default function CourseCard({ course, onSelectCourse }: Props) {
         </div>
 
         <div className="flex-grow space-y-2 mb-4">
-          <p className="flex items-center gap-1">
-            <span className='text-[var(--primary-text-h)]'><MapPin size={14} /></span>
-            {course.location}
-          </p>
+       
           <p className="flex items-center gap-1 ">
             <span className='text-[var(--primary-text-h)]'><Award size={14} /></span>
             {course.courseLevel}

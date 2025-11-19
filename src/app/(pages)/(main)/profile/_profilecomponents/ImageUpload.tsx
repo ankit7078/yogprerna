@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { LuTrash, LuUpload, LuUser } from "react-icons/lu";
 import { DeleteProfileModal } from "../_modals/DeleteProfileModal";
 import ProfileCropModal from "../_modals/ProfileCropModal";
 import { UserProps } from "@/types/types";
 import Image from "next/image";
+import { Trash, Upload, User } from "lucide-react";
 
 interface ImageUploadProps {
   profile: UserProps | null;
@@ -71,13 +71,13 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ profile }) => {
             </div>
           ) : (
             <div className="w-full h-full bg-purple-600 flex items-center justify-center text-white">
-              <LuUser size={32} />
+              <User size={32} />
             </div>
           )}
           {isHovered && !currentImage && (
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="p-2 rounded-full transition-colors bg-purple-50/20 cursor-pointer duration-200">
-                <LuUpload size={20} className="text-white" />
+                <Upload size={20} className="text-white" />
               </div>
             </div>
           )}
@@ -89,20 +89,20 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ profile }) => {
                 className="p-2 rounded-full transition-colors bg-purple-50/20 cursor-pointer duration-200"
                 title="Edit Image"
               >
-                <LuUpload size={16} className="text-white" />
+                <Upload size={16} className="text-white" />
               </button>
               <button
                 onClick={handleDeleteClick}
                 className="p-2 rounded-full transition-colors cursor-pointer bg-purple-50/20 duration-200"
                 title="Delete Image"
               >
-                <LuTrash size={16} className="text-white" />
+                <Trash size={16} className="text-white" />
               </button>
             </div>
           )}
         </div>
 
-        <LuUpload
+        <Upload
           size={26}
           className="absolute md:hidden block bottom-1 right-1 text-gray-50 bg-purple-700 rounded-full p-1.5 border-white border-2"
         />
